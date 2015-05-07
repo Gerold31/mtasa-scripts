@@ -1,7 +1,7 @@
 <meta>
-    <info author="Gerold" description="PDEG gamemode" version="0.1" type="gamemode" />
+	<info author="Gerold" description="PDEG gamemode" version="0.1" type="gamemode" />
 
-    <map src="pdeg.map" />
-    <script src="pdeg.lua"/>
-    <script type="client" src="pdeg.lua"/>
+	<map src="pdeg.map" />
+	<script src="pdeg.lua"/>
+	<script type="client" src="pdeg.lua"/>
 </meta>
