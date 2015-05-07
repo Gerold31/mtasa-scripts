@@ -1,0 +1,13 @@
+<meta>
+    <info author="Gerold" description="vehicle handling" version="0.1" type="script" />
+
+    <!-- only event <include resource="utils"/> -->
+
+    <export function="addItem" type="server" http="false"/>
+    <export function="removeItem" type="server" http="false"/>
+    <export function="moveItem" type="server" http="false"/>
+
+    <script type="shared" src="inventoryutils.lua"/>
+    <script type="client" src="inventorygui.lua"/>
+    <script type="server" src="inventory.lua"/>
+</meta>
