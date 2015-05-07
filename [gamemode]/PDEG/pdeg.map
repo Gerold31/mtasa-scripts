@@ -1,0 +1,9 @@
+<map mod="deathmatch" version="0.1" time="12:00" weather="0">
+
+	<meta>
+		<author>Gerold</author>
+		<version>0.1</version>
+	</meta>
+ 
+	<spawnpoint id="grove" posX="2485" posY="-1667" posZ="13.3" rotX="0"></spawnpoint>
+</map>
