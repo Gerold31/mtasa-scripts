@@ -1,5 +1,7 @@
 <meta>
 	<info author="Gerold" description="vehicle scripts" version="0.1" type="script" />
 
-	<script type="client" src="noexplosion.lua"/>
+	<oop>true</oop>
+	<script type="client" src="noexplosion.lua" />
+	<script type="client" src="damage_client.lua" />
 </meta>
