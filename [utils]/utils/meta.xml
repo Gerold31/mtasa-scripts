@@ -1,0 +1,8 @@
+<meta>
+    <info author="Gerold" description="utils" version="0.1" type="misc" />
+
+    <export function="spawnVehicle" type="server" http="false"/>
+    <export function="getVehicleHandlingProperty" type="server" http="false"/>
+
+    <script src="utils.lua"/>
+</meta>
