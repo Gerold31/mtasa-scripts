@@ -1,0 +1,7 @@
+<meta>
+    <info author="Gerold" description="admin tools" version="0.1" type="script" />
+
+    <include resource="utils"/>
+
+    <script src="admin.lua"/>
+</meta>
