@@ -7,7 +7,7 @@
 	<export function="removeItem" type="server" http="false"/>
 	<export function="moveItem" type="server" http="false"/>
 
-	<script type="shared" src="inventoryutils.lua"/>
-	<script type="client" src="inventorygui.lua"/>
-	<script type="server" src="inventory.lua"/>
+	<script type="shared" src="inventoryutils_shared.lua"/>
+	<script type="client" src="inventorygui_client.lua"/>
+	<script type="server" src="inventory_server.lua"/>
 </meta>

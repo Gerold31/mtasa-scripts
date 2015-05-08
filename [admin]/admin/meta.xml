@@ -3,5 +3,5 @@
 
 	<include resource="utils"/>
 
-	<script src="admin.lua"/>
+	<script type="server" src="admin_server.lua"/>
 </meta>
