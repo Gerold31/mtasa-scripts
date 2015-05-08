@@ -15,9 +15,8 @@ addEventHandler("onClientVehicleDamage", getRootElement(),
 
 			if (new_loss > 0) then
 				local new_helth = health - new_loss
-				if (new_helth < 251) then
-					new_helth = 251
-					source:setEngineState(false)
+				if (new_helth < 250) then
+					new_helth = 250
 				end
 				source:setHealth(new_helth + loss)
 				outputChatBox("damage: " .. tonumber(health) .. " -> " .. tonumber(new_helth))
