@@ -27,6 +27,12 @@ function vehicleFireFix(weapon, _, _, _, _, _, element)
 				setElementHealth(element, startFire + 1)
 			end
 		end
+	-- debug
+	elseif weapon == 41 and element and getElementType(element) == "vehicle" then
+		local health = getElementHealth(element)
+		if health >= startFire and health < 800 then
+			setElementHealth(element, health + 1)
+		end
 	end
 end
 addEventHandler("onClientPlayerWeaponFire", root, vehicleFireFix)
