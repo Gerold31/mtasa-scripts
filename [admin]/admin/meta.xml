@@ -1,7 +1,12 @@
 <meta>
 	<info author="Gerold" description="admin tools" version="0.1" type="script" />
 
+	<min_mta_version client="1.4.1" server="1.4.1" />
+
 	<include resource="utils"/>
 
+	<oop>true</oop>
+
 	<script type="server" src="admin_server.lua"/>
+	<script type="client" src="admin_client.lua"/>
 </meta>
