@@ -1,8 +1,13 @@
 <meta>
 	<info author="Gerold" description="utils" version="0.1" type="misc" />
 
-	<export function="spawnVehicle" type="server" http="false"/>
-	<export function="getVehicleHandlingProperty" type="server" http="false"/>
+	<export function="getVehicleIDs" type="shared" http="false"/>
+	<export function="getVehiclePackerTop2" type="shared" http="false"/>
+	<export function="getVehiclePackerTop1" type="shared" http="false"/>
+	<export function="getVehicleHandlingProperty" type="shared" http="false"/>
 
+	<export function="spawnVehicle" type="server" http="false"/>
+
+	<script type="shared" src="utils_shared.lua"/>
 	<script type="server" src="utils_server.lua"/>
 </meta>
