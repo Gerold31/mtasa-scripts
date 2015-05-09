@@ -5,7 +5,7 @@ function onInventoryChange(inventory)
 	local owner = inventory.owner
 	if(inventory.type == "player") then
 		triggerClientEvent(owner, "onClientInventoryChange", owner, inventory)
-	elseif(inventory.type == "vehicle") then
+	elseif(inventory.type == "vehicle" and getVehicleOccupants(owner)) then
 		for _, occupant in pairs(getVehicleOccupants(owner)) do
 			if(occupant and getElementType(occupant) == "player") then
 				triggerClientEvent(occupant, "onClientVehicleInventoryChange", occupant, inventory)
