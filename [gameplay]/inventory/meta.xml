@@ -1,13 +1,23 @@
 <meta>
-	<info author="Gerold" description="vehicle handling" version="0.1" type="script" />
+	<info author="Gerold" description="Item and inventory management" version="0.1" type="script" />
+	<oop>true</oop>
 
-	<!-- only event <include resource="utils"/> -->
+	<export function="getItemDefinition" />
+	<export function="getItemDefinitionId" />
+	<export function="getItemDefinitionName" />
+	<export function="getItemDefinitionLocalizedName" />
+	<export function="getItemDefinitionWeight" />
+	<export function="getItemDefinitionVolume" />
+	<export function="isItemDefinitionDivisible" />
 
-	<export function="addItem" type="server" http="false"/>
-	<export function="removeItem" type="server" http="false"/>
-	<export function="moveItem" type="server" http="false"/>
+	<export function="addItem" type="server" http="false" />
+	<export function="removeItem" type="server" http="false" />
+	<export function="moveItem" type="server" http="false" />
 
-	<script type="shared" src="inventoryutils_shared.lua"/>
-	<script type="client" src="inventorygui_client.lua"/>
-	<script type="server" src="inventory_server.lua"/>
+	<script type="shared" src="itemdefinitions_shared.lua" />
+	<script type="shared" src="inventoryutils_shared.lua" />
+	<script type="client" src="inventorygui_client.lua" />
+	<script type="server" src="inventory_server.lua" />
+
+	<file src="itemdefinitions_shared.xml" />
 </meta>

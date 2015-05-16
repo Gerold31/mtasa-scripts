@@ -1,0 +1,9 @@
+<items>
+	<item id="stone" volume="1" divisible="true">
+		<desc name="Stone" />
+		<desc name="Stein" lang="de" />
+	</item>
+	<item id="mp5" weight="5" volume="2">
+		<desc name="MP5" />
+	</item>
+</items>
