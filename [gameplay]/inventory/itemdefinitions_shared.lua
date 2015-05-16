@@ -76,9 +76,7 @@ function reloadItemDefinitions()
 
 			-- interpret attributes
 			---- id
-			if (id == false) then
-				id = nil
-			end
+			id = tonumber(id)
 			---- name
 			if (name == false) then
 				name = nil
@@ -141,8 +139,7 @@ function reloadItemDefinitions()
 					__index = definition,
 					__newindex = doItemDefinitionWriteError,
 					__metatable = false,
-					__tostring = doItemDefinitionToString,
-					__call = getItemDefinition,
+					__tostring = doItemDefinitionToString
 				})
 			end
 		else
