@@ -200,6 +200,31 @@ function getNextFreeSlot(vehicle, size)
 	end
 end
 
+function checkPath(vehicle, slot, size)
+	if(size == 1) then
+		if(slot <= slotsUp-2) then
+			for i=slot+2,slotsUp,2 do
+				if(mountedVehicles[vehicle][i]) then return false end
+			end
+		else
+			for i=slot+2,slotsUp+slotsDown,2 do
+				if(mountedVehicles[vehicle][i]) then return false end
+			end
+		end
+	else
+		if(slot <= slotsUp) then
+			for i=slot+size,slotsUp do
+				if(mountedVehicles[vehicle][i]) then return false end
+			end
+		else
+			for i=slot+size,slotsUp+slotsDown do
+				if(mountedVehicles[vehicle][i]) then return false end
+			end
+		end
+	end
+	return true
+end
+
 function mountVehicle(player, command, vehicleID, slot)
 	vehicleID = tonumber(vehicleID) or 522
 	slot = tonumber(slot) or -1
@@ -216,12 +241,21 @@ function mountVehicle(player, command, vehicleID, slot)
 			slot = getNextFreeSlot(vehicle, size)
 		end
 
+		if(size > 1 and slot % 2 == 0) then
+			slot = slot-1
+		end
+
 
 		for i=0,size-1 do
 			if(mountedVehicles[vehicle][slot+i]) then
 				outputChatBox("There is already a vehicle in this slot", player)
 				return
 			end
+		end
+
+		if(not checkPath(vehicle, slot, size)) then
+			outputChatBox("The Path is blocked by another vehicle", player)
+			return
 		end
 
 		if(slot < 1 or slot > slotsUp+slotsDown) then
@@ -293,10 +327,23 @@ end
 addCommandHandler("mount", mountVehicle)
 
 function detachVehicles(player, command, slot)
+	slot = tonumber(slot)
 	local vehicle = getPedOccupiedVehicle(player)
-	if(vehicle and getElementModel(vehicle) == packerID and mountedVehicles[vehicle][tonumber(slot)]) then
-		detachElements(mountedVehicles[vehicle][tonumber(slot)])
-		mountedVehicles[vehicle][tonumber(slot)] = nil
+	if(vehicle and getElementModel(vehicle) == packerID and mountedVehicles[vehicle][slot]) then
+		local child = mountedVehicles[vehicle][slot]
+		local size = vehicleSize[getElementModel(child)]
+		for i=slot,0,-1 do
+			if(mountedVehicles[vehicle][i] ~= child) then break end
+			slot = i
+		end
+		if(not checkPath(vehicle, slot, size)) then
+			outputChatBox("The Path is blocked by another vehicle", player)
+			return
+		end
+		detachElements(child)
+		for i=slot,slot+size-1 do
+			mountedVehicles[vehicle][i] = nil
+		end
 	end
 end
 addCommandHandler("detach", detachVehicles)
