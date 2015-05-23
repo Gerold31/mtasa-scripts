@@ -1,5 +1,7 @@
 ItemDefinitions = {}
 
+-- TODO: use id as opject to reduce network load
+
 function getItemDefinition(id)
 	local definition = ItemDefinitions[id]
 	if (definition == nil) then
@@ -17,6 +19,7 @@ function getItemDefinitionName(definition)
 end
 
 function getItemDefinitionLocalizedName(definition, lang)
+	if (not definition) then return nil end
 	lang = lang or getLocalization().code
 	local name = definition.localisations[lang]
 	if (name == nil) then
@@ -39,7 +42,7 @@ function isItemDefinitionDivisible(definition)
 end
 
 function doItemDefinitionToString(definition)
-	return definition.id
+	return "{ItemDefinition:" .. definition.id .. "}"
 end
 
 function doItemDefinitionWriteError(table, key, value)
@@ -150,5 +153,5 @@ function reloadItemDefinitions()
 	-- TODO xmlRoot:unload()
 	xmlUnloadFile(xmlRoot)
 end
-addEventHandler("onResourceStart", resourceRoot, reloadItemDefinitions)
-addEventHandler("onClientResourceStart", resourceRoot, reloadItemDefinitions)
+addEventHandler("onResourceStart", resourceRoot, reloadItemDefinitions, false, "high+1")
+addEventHandler("onClientResourceStart", resourceRoot, reloadItemDefinitions, false, "high+1")

@@ -1,155 +1,224 @@
-local inventories = {}
+-- Inventories[element][key]:
+--   * ´listeners´ saves the clients which has open the inventory
 
 
-function onInventoryChange(inventory)
-	local owner = inventory.owner
-	if(inventory.type == "player") then
-		triggerClientEvent(owner, "onClientInventoryChange", owner, inventory)
-	elseif(inventory.type == "vehicle" and getVehicleOccupants(owner)) then
-		for _, occupant in pairs(getVehicleOccupants(owner)) do
-			if(occupant and getElementType(occupant) == "player") then
-				triggerClientEvent(occupant, "onClientVehicleInventoryChange", occupant, inventory)
-			end
-		end
+function addInventory(element, key, volume)
+	volume = volume or 0
+	if (Inventories[element] == nil) then
+		Inventories[element] = {}
 	end
-end
-
--- loads inventory from db
-function loadPlayerInventory(player)
-	-- @todo that's not a db
-	inventories[player] = {volume=50, owner=player, type="player", items={water_bottle = 10}}
-
-	-- workaround to make sure client has registerd his event handler first
-	setTimer(onInventoryChange, 1000, 1, inventories[player])
-end
-
--- loads inventory from db
-function loadVehicleInventory(vehicle)
-	-- @todo still not a db
-	inventories[vehicle] = {volume=500, owner=vehicle, type="vehicle", items={tire = 5}}
-
-	-- workaround to make sure client has registerd his event handler first
-	setTimer(onInventoryChange, 1000, 1, inventories[vehicle])
-end
-
-function addItem(inventory, item, amount)
-	if(not (inventory and item and amount)) then
-		return false
-	end
-
-	if(getInventoryVolume(inventory) + amount * items[item].volume > inventory.volume) then
-		return false
-	end
-
-	if(not inventory.items[item]) then
-		inventory.items[item] = amount
+	if (Inventories[element][key] ~= nil) then
+		outputDebugString("Inventory already exists: " .. tostring(element) .. ":" .. tostring(key), 2)
 	else
-		inventory.items[item] = inventory.items[item] + amount
+		Inventories[element][key] = {
+			["owner"] = element,
+			["key"] = key,
+			["volume"] = volume,
+			["listeners"] = {},
+			["items"] = {}
+		}
 	end
-
-	onInventoryChange(inventory)
-
-return true;
+	return setmetatable({["element"] = element, ["key"] = key}, Inventory)
 end
 
-function removeItem(inventory, item, amount)
-	if(not (inventory and item and amount)) then
-		return false
+function removeInventory(element, key)
+	if (key == nil) then
+		key = element.key
+		element = element.element
 	end
 
-	if(not inventory.items[item] or inventory.items[item] < amount) then
-		return false;
+	local inventory = getInventory(element, key)
+	local inv = getInv(inventory)
+	if (inv == nil) then return false end
+
+	triggerClientEvent(inv.listeners, "clientInventoryClose", element, key)
+	for _, client in pairs(inv.listeners) do
+		triggerEvent("onInventoryClose", element, client, inventory)
 	end
 
-	inventory.items[item] = inventory.items[item] - amount
-
-	if(inventory.items[item] == 0) then
-		inventory.items[item] = nil
+	Inventories[element][key] = nil
+	if (next(Inventories[element]) == nil) then
+		Inventories[element] = nil
 	end
-
-	onInventoryChange(inventory)
-
-	return true;
-end
-
-function moveItem(from, to, item, amount)
-	if(not removeItem(from, item, amount)) then
-		return false
-	end
-	if(not addItem(to, item, amount)) then
-		addItem(from, item, amount) -- @todo does this always work?
-		return false
-	end
-
-	onInventoryChange(from)
-	onInventoryChange(to)
 
 	return true
 end
 
-addEventHandler("onResourceStart", getRootElement(),
-	function(res)
-		if(getResourceName(res) == "inventory") then
-			for _, player in pairs(getElementsByType('player')) do
-				loadPlayerInventory(player)
-			end
-			for _, vehicle in pairs(getElementsByType('vehicle')) do
-				loadVehicleInventory(vehicle)
-			end
+function setInventoryItems(inventory, items)
+	if (not setItems(inventory, items)) then
+		return false
+	end
+
+	local inv = getInv(inventory)
+	local listeners = inv.listeners
+	triggerEvent("onInventorySetItems", inventory.element)
+	triggerClientEvent(listeners, "clientInventorySetItems", inventory.element, inventory.key, items)
+
+	return true
+end
+
+function setInventoryItemAmount(inventory, itemdef, amount)
+	if (not setItemAmount(inventory, itemdef, amount)) then
+		return false
+	end
+
+	local inv = getInv(inventory)
+	local listeners = inv.listeners
+	triggerEvent("onInventorySetItemAmount", inventory.element, inventory, itemdef, amount)
+	triggerClientEvent(listeners, "clientInventorySetItemAmount", inventory.element, inventory.key, getItemDefinitionId(itemdef), amount)
+
+	return true
+end
+
+function addInventoryItem(inventory, itemdef, amount)
+	amount = amount or 1
+	if (amount < 0) then return false end
+	amount = getInventoryItemAmount(inventory, itemdef) + amount
+
+	return setInventoryItemAmount(inventory, itemdef, amount)
+end
+
+function removeInventoryItem(inventory, itemdef, amount)
+	amount = amount or 1
+	if (amount < 0) then return false end
+	amount = getInventoryItemAmount(inventory, itemdef) - amount
+
+	return setInventoryItemAmount(inventory, itemdef, amount)
+end
+
+function moveInventoryItem(from, to, itemdef, amount)
+	amount = amount or 1
+	if (canInventoryItemMove(from, to, itemdef, amount)) then
+		assert(removeInventoryItem(from, itemdef, amount))
+		assert(addInventoryItem(to, itemdef, amount))
+		return true
+	else
+		return false
+	end
+end
+
+
+if (Inventory == nil) then Inventory = {} end
+Inventory.remove = removeInventory
+Inventory.setItems = setInventoryItems
+Inventory.setItemAmount = setInventoryItemAmount
+Inventory.addItem = addInventoryItem
+Inventory.removeItem = removeInventoryItem
+Inventory.moveItem = moveInventoryItem
+
+
+-- source: inventory.element
+-- onInventoryOpen(client, inventory)
+addEvent("onInventoryOpen")
+-- source: inventory.element
+-- onInventoryClose(client, inventory)
+addEvent("onInventoryClose")
+-- source: inventory.element
+-- onInventorySetItemAmount(inventory, itemdef, amount)
+addEvent("onInventorySetItemAmount")
+-- source: inventory.element
+-- onInventorySetItems(inventory)
+addEvent("onInventorySetItems")
+-- source: inventory.element
+-- onInventoryMoveItem(client, from, to, itemdef, amount, userdata)
+addEvent("onInventoryMoveItem")
+-- source: root
+-- onInventoryStartup()
+addEvent("onInventoryStartup")
+-- source: root
+-- onInventoryShutdown()
+addEvent("onInventoryShutdown")
+
+-- source: inventory.element
+-- serverInventoryOpen(key)
+addEvent("serverInventoryOpen", true)
+-- source: inventory.element
+-- serverInventoryClose(key)
+addEvent("serverInventoryClose", true)
+-- source: from.element
+-- serverInventoryMoveItem(from.key, to.element, to.key, definitionId, amount)
+addEvent("serverInventoryMoveItem", true)
+
+
+function serverInventoryOpen(key)
+	local inventory = getInventory(source, key)
+	local inv = getInv(inventory)
+
+	if (inv == nil) then
+		triggerClientEvent(client, "clientInventoryClose", source, key)
+		return
+	end
+
+	triggerEvent("onInventoryOpen", source, client, inventory)
+	if (wasEventCancelled()) then
+		triggerClientEvent(client, "clientInventoryClose", source, key)
+	else
+		inv.listeners[client] = client
+		triggerClientEvent(client, "clientInventoryOpen", source, key, {
+			["volume"] = inv.volume,
+			["items"] = getInventoryItems(inventory)
+		})
+	end
+end
+addEventHandler("serverInventoryOpen", root, serverInventoryOpen)
+
+function serverInventoryClose(key)
+	local inventory = getInventory(source, key)
+	local inv = getInv(inventory)
+	if (inv == nil) then return end
+	if (inv.listeners[client] == nil) then return end
+	triggerEvent("onInventoryClose", source, client, inventory)
+	inv.listeners[client] = nil
+end
+addEventHandler("serverInventoryClose", root, serverInventoryClose)
+
+function serverInventoryMoveItem(from_key, to_element, to_key, definitionId, amount, userdata)
+	local from = getInventory(source, from_key)
+	local to = getInventory(to_element, to_key)
+	local itemdef = getItemDefinition(definitionId)
+
+	local accept = canInventoryItemMove(from, to, itemdef, amount)
+	if (getInventoryFreeVolume(to) < amount * getItemDefinitionVolume(itemdef)) then
+		accept = false
+	end
+	if (getInv(from).listeners[client] == nil or getInv(to).listeners[client] == nil) then
+		accept = false
+	end
+	if (accept) then
+		accept = triggerEvent("onInventoryMoveItem", root, client, from, to, itemdef, amount, userdata)
+	end
+
+	if (accept) then
+		assert(removeInventoryItem(from, itemdef, amount))
+		assert(addInventoryItem(to, itemdef, amount))
+		-- TODO inform client about success
+	else
+		-- TODO inform client about cancel
+	end
+end
+addEventHandler("serverInventoryMoveItem", root, serverInventoryMoveItem)
+
+function onElementDestroy()
+	if (Inventories[source] == nil) then return end
+	for key, inv in pairs(Inventories[source]) do
+		for _, client in pairs(inv.listeners) do
+			local inventory = assert(getInventory(source, key))
+			triggerEvent("onInventoryClose", source, client, inventory)
 		end
 	end
-)
-
-addEventHandler("onPlayerJoin", getRootElement(),
-	function()
-		loadPlayerInventory(source)
-	end
-) -- @todo should be onPlayerLogin
-
-
-addEventHandler("onVehicleSpawn", getRootElement(),
-	function()
-		loadVehicleInventory(source)
-	end
-)
-
-addEventHandler("onVehicleEnter", getRootElement(),
-	function(player, seat)
-		triggerClientEvent(player, "onClientVehicleInventoryChange", player, inventories[source])
-	end
-)
-
-addEventHandler("onVehicleExit", getRootElement(),
-	function(player, seat)
-		triggerClientEvent(player, "onClientVehicleInventoryChange", player, nil)
-	end
-)
-
--- @todo clean up
-
--- debugging
-function take(player, command, item, amount)
-	if(not (item and amount)) then
-		outputChatBox("Wrong syntax, use /take <item> <amount>", player)
-	end
-
-	local vehicleInventory = inventories[getPedOccupiedVehicle(player)]
-
-	if(not moveItem(vehicleInventory, inventories[player], getItemFromName(item), tonumber(amount))) then
-		outputChatBox("failed", player)
-	end
+	Inventories[source] = nil
 end
-addCommandHandler("take", take)
+addEventHandler("onElementDestroy", root, onElementDestroy, true, "low-100")
 
-function give(player, command, item, amount)
-	if(not (item and amount)) then
-		outputChatBox("Wrong syntax, use /give <item> <amount>", player)
-	end
 
-	local vehicleInventory = inventories[getPedOccupiedVehicle(player)]
+addEventHandler("onResourceStart", resourceRoot,
+	function()
+		triggerEvent("onInventoryStartup", root)
+	end, false
+)
 
-	if(not moveItem(inventories[player], vehicleInventory, getItemFromName(item), tonumber(amount))) then
-		outputChatBox("failed", player)
-	end
-end
-addCommandHandler("give", give)
+addEventHandler("onResourceStop", resourceRoot,
+	function()
+		triggerEvent("onInventoryShutdown", root)
+	end, false
+)

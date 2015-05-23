@@ -1,7 +1,11 @@
 <meta>
 	<info author="Gerold" description="Item and inventory management" version="0.1" type="script" />
+	<min_mta_version client="1.4.1" server="1.4.1" />
 	<oop>true</oop>
 
+	<!--
+		Item Definitions
+	-->
 	<export function="getItemDefinition" />
 	<export function="getItemDefinitionId" />
 	<export function="getItemDefinitionName" />
@@ -10,14 +14,51 @@
 	<export function="getItemDefinitionVolume" />
 	<export function="isItemDefinitionDivisible" />
 
-	<export function="addItem" type="server" http="false" />
-	<export function="removeItem" type="server" http="false" />
-	<export function="moveItem" type="server" http="false" />
-
 	<script type="shared" src="itemdefinitions_shared.lua" />
-	<script type="shared" src="inventoryutils_shared.lua" />
-	<script type="client" src="inventorygui_client.lua" />
-	<script type="server" src="inventory_server.lua" />
 
 	<file src="itemdefinitions_shared.xml" />
+
+	<!--
+		Inventory management
+	-->
+	<export function="getInventory" />
+	<export function="getInventories" />
+	<export function="isInventoryReady" />
+	<export function="getInventoryVolume" />
+	<export function="getInventoryUsedVolume" />
+	<export function="getInventoryFreeVolume" />
+	<export function="getInventoryMass" />
+	<export function="getInventoryItems" />
+	<export function="getInventoryItemAmount" />
+	<export function="getInventoryIterator" />
+	<export function="canInventoryItemMove" />
+
+	<export function="addInventory" />
+	<export function="setInventoryItems" />
+	<export function="setInventoryItemAmount" />
+	<export function="addInventoryItem" />
+	<export function="removeInventoryItem" />
+	<export function="moveInventoryItem" />
+
+	<export function="openInventory" />
+	<export function="closeInventory" />
+	<export function="moveInventoryItem" />
+
+	<script type="client" src="inventory_client.lua" />
+	<script type="server" src="inventory_server.lua" />
+	<script type="shared" src="inventory_shared.lua" />
+
+	<!--
+		Player inventory
+	-->
+	<export function="getPlayerInventory" />
+
+	<script type="client" src="player_client.lua" />
+	<script type="server" src="player_server.lua" />
+
+	<!--
+		Commands for the admin
+	-->
+	<script type="server" src="admin_server.lua" />
+
 </meta>
