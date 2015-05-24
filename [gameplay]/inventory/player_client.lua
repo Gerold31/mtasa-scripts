@@ -14,13 +14,20 @@ addEventHandler("onClientResourceStart", resourceRoot,
 
 addEventHandler("onClientResourceStop", resourceRoot,
 	function()
-		closeInventory(d.inventory)
+		--closeInventory(d.inventory)
 		d.inventory = nil
 	end, false, "low"
 )
 
 addEventHandler("onClientInventoryClose", getLocalPlayer(),
 	function()
-		assert(openInventory(getLocalPlayer(), "main"))
+		outputDebugString("Inventory of local player closed.", 3)
+		assert(openInventory(source, "main"))
+	end, false
+)
+
+addEventHandler("onClientInventoryOpen", getLocalPlayer(),
+	function()
+		outputDebugString("Inventory of local player opened.", 3)
 	end, false
 )

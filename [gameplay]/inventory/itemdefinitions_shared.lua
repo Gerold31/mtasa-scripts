@@ -126,11 +126,11 @@ function reloadItemDefinitions()
 			---- divisible
 			if (divisible == false or divisible == "false") then
 				divisible = false
-			else if (divisible == "true") then
+			elseif (divisible == "true") then
 				divisible = true
 			else
 				divisible = nil
-			end end
+			end
 
 			-- check for invalid attributes
 			local valid = true

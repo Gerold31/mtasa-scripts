@@ -49,6 +49,9 @@
 	<export type="client" function="closeInventory" />
 	<export type="client" function="moveInventoryItem" />
 
+	<script type="client" src="inventorybase_client.lua" />
+	<script type="server" src="inventorybase_server.lua" />
+	<script type="shared" src="inventorybase_shared.lua" />
 	<script type="client" src="inventory_client.lua" />
 	<script type="server" src="inventory_server.lua" />
 	<script type="shared" src="inventory_shared.lua" />
