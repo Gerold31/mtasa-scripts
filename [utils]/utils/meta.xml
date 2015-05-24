@@ -6,8 +6,6 @@
 	<export function="getVehiclePackerTop1" type="shared" http="false"/>
 	<export function="getVehicleHandlingProperty" type="shared" http="false"/>
 
-	<export function="spawnVehicle" type="server" http="false"/>
-
 	<script type="shared" src="utils_shared.lua"/>
 	<script type="server" src="utils_server.lua"/>
 </meta>

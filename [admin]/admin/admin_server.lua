@@ -9,7 +9,7 @@ function getVehicleHandlingProperty(vehid, prop)
 end
 
 function spawnVehicle(vehid, x,y,z)
-	return call(getResourceFromName("utils"), "spawnVehicle", vehid, x,y,z)
+	return call(getResourceFromName("vehicles"), "spawnVehicle", vehid, x,y,z)
 end
 
 for i, id in pairs(vehicleIDs) do

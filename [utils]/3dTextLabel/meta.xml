@@ -1,0 +1,20 @@
+<meta>
+    <info author="TrezeLurese" name="3DText Label" version="1" type="script"/>
+    
+    <script src="label.lua" type="client"/>
+    <script src="labels.lua" type="server"/>
+    
+    <!-- Client Functions -->
+    <export function="create3DTextLabel" type="client"/>
+    <export function="delete3DTextLabel" type="client"/>
+    <export function="update3DTextLabel" type="client"/>
+    <export function="detach3DTextLabel" type="client"/>
+    <export function="attach3DTextLabelToElement" type="client"/>
+        
+    <!-- Server Functions -->
+    <export function="create3DTextLabel" type="server"/>
+    <export function="delete3DTextLabel" type="server"/>
+    <export function="update3DTextLabel" type="server"/> 
+    <export function="detach3DTextLabel" type="server"/>   
+    <export function="attach3DTextLabelToElement" type="server"/>
+</meta>

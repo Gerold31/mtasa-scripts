@@ -5,10 +5,6 @@ local slotsUp = 8
 local slotsDown = 6
 local animationSteps = 20
 
-function spawnVehicle(vehid, x,y,z)
-	return exports["utils"]:spawnVehicle(vehid, x,y,z)
-end
-
 local mountPoints = { [0] = {
 	{-0.8, 2.30,2.35, 15,0,0},
 	{ 0.8, 2.30,2.35, 15,0,0},
@@ -35,20 +31,6 @@ local mountPoints = { [0] = {
 	{-0.8,-5.5, 0.23, 15,0,0},
 	{ 0.8,-5.5, 0.23, 15,0,0}
 } }
-
-local vehicleSize = {
- [581] = 1, [510] = 1, [509] = 1, [522] = 1, [481] = 1, [461] = 1, [462] = 1, [448] = 1, [521] = 1, [468] = 1, [463] = 1, [586] = 1,
- [523] = 1, [441] = 1, [594] = 1, [501] = 1, [564] = 1, [471] = 1,
- [572] = 2, [464] = 2, [571] = 2, [610] = 2, [465] = 2,
- [602] = 4, [545] = 4, [496] = 4, [517] = 4, [401] = 4, [410] = 4, [518] = 4, [600] = 4, [527] = 4, [436] = 4, [589] = 4, [580] = 4,
- [419] = 4, [439] = 4, [533] = 4, [549] = 4, [526] = 4, [491] = 4, [474] = 4, [445] = 4, [426] = 4, [507] = 4, [547] = 4, [585] = 4,
- [405] = 4, [587] = 4, [550] = 4, [492] = 4, [566] = 4, [546] = 4, [540] = 4, [551] = 4, [421] = 4, [516] = 4, [529] = 4, [438] = 4,
- [574] = 4, [420] = 4, [596] = 4, [597] = 4, [598] = 4, [531] = 4, [543] = 4, [422] = 4, [478] = 4, [605] = 4, [536] = 4, [575] = 4,
- [535] = 4, [576] = 4, [402] = 4, [542] = 4, [603] = 4, [475] = 4, [568] = 4, [424] = 4, [504] = 4, [539] = 4, [429] = 4, [411] = 4,
- [541] = 4, [559] = 4, [415] = 4, [561] = 4, [480] = 4, [560] = 4, [562] = 4, [506] = 4, [565] = 4, [451] = 4, [434] = 4, [558] = 4,
- [494] = 4, [555] = 4, [502] = 4, [477] = 4, [503] = 4, [404] = 4, [479] = 4, [458] = 4, [606] = 4, [607] = 4, [611] = 4, [485] = 4,
- [409] = 6, [534] = 6, [412] = 6, [467] = 6, [604] = 6, [466] = 6,
-}
 
 local rampState = {} -- 0: ramp down, 1: ramp up
 
@@ -141,7 +123,7 @@ function movePackerRamp(vehicle, pos)
 		if(s+off > slotsUp) then break end
 		local child = mountedVehicles[vehicle][s+off]
 		if(child) then
-			local size = vehicleSize[getElementModel(child)]
+			local size = getVehicleDefinitionSize(getVehicleDefinition(getElementModel(child)))
 			local px = 0
 			local py = 0
 			local pz = 0
@@ -228,8 +210,8 @@ end
 function mountVehicle(player, command, vehicleID, slot)
 	vehicleID = tonumber(vehicleID) or 522
 	slot = tonumber(slot) or -1
-	local size = vehicleSize[vehicleID]
-	if(not size) then
+	local size = getVehicleDefinitionSize(getVehicleDefinition(vehicleID))
+	if(not size or size == -1) then
 		outputChatBox("This vehicle can't be mounted.")
 		return
 	end
@@ -331,7 +313,7 @@ function detachVehicles(player, command, slot)
 	local vehicle = getPedOccupiedVehicle(player)
 	if(vehicle and getElementModel(vehicle) == packerID and mountedVehicles[vehicle][slot]) then
 		local child = mountedVehicles[vehicle][slot]
-		local size = vehicleSize[getElementModel(child)]
+		local size = getVehicleDefinitionSize(getVehicleDefinition(getElementModel(getElementModel(child))))
 		for i=slot,0,-1 do
 			if(mountedVehicles[vehicle][i] ~= child) then break end
 			slot = i

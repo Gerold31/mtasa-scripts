@@ -11,13 +11,6 @@ vehicleIDs = { 602, 545, 496, 517, 401, 410, 518, 600, 527, 436, 589, 580, 419, 
 function getVehicleIDs()
 	return vehicleIDs;
 end
-function getVehiclePackerTop2()
-	return vehiclePackerTop2;
-end
-function getVehiclePackerTop1()
-	return vehiclePackerTop1;
-end
-
 
 function getVehicleHandlingProperty(element, property)
 	local handlingTable

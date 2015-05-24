@@ -4,6 +4,7 @@
 	<min_mta_version client="1.4.1" server="1.4.1" />
 
 	<include resource="utils"/>
+	<include resource="vehicles"/>
 
 	<oop>true</oop>
 
