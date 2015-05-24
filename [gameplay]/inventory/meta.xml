@@ -15,7 +15,7 @@
 	<export type="shared" function="getItemDefinitionId" />
 	<export type="shared" function="getItemDefinitionName" />
 	<export type="shared" function="getItemDefinitionLocalizedName" />
-	<export type="shared" function="getItemDefinitionWeight" />
+	<export type="shared" function="getItemDefinitionMass" />
 	<export type="shared" function="getItemDefinitionVolume" />
 	<export type="shared" function="isItemDefinitionDivisible" />
 

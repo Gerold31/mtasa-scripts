@@ -11,7 +11,7 @@ end
 
 function getInventories(element)
 	local result = {}
-	for key, _ in pairs(Inventories[element]) do
+	for key, _ in pairs(Inventories[element] or {}) do
 		result[key] = setmetatable({["element"] = element, ["key"] = key}, Inventory)
 	end
 	return result
@@ -52,7 +52,7 @@ function getInventoryMass(inventory)
 
 	local mass = 0
 	for _, stack in pairs(inv.items) do
-		mass = mass + stack.amount * getItemDefinitionWeight(stack.type)
+		mass = mass + stack.amount * getItemDefinitionMass(stack.type)
 	end
 	return mass
 end

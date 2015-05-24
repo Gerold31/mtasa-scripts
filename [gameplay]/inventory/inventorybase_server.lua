@@ -168,6 +168,7 @@ addEventHandler("onResourceStart", resourceRoot,
 
 addEventHandler("onResourceStop", resourceRoot,
 	function ()
+		-- TODO trigger onInventoryClose
 		triggerEvent("onInventoryShutdown", root)
 	end, false
 )

@@ -1,0 +1,11 @@
+<meta>
+	<info author="JojOatXGME" description="Inventory GUI" version="0.1" type="script" />
+	<min_mta_version client="1.4.1" server="1.4.1" />
+	<oop>true</oop>
+
+	<include resource="inventory" />
+
+	<script type="client" src="wrapper_client.lua" />
+	<script type="client" src="gui_client.lua" />
+
+</meta>

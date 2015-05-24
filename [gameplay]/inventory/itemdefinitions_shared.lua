@@ -45,7 +45,7 @@ function getItemDefinitionLocalizedName(definition, lang)
 	end
 end
 
-function getItemDefinitionWeight(definition)
+function getItemDefinitionMass(definition)
 	local id = type(definition) == "table" and definition.id or definition
 	local data = ItemDefinitions[id]
 	if (data == nil) then
