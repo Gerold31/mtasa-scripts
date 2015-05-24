@@ -4,15 +4,20 @@
 	<oop>true</oop>
 
 	<!--
+		Utils
+	-->
+	<script type="shared" src="utils_shared.lua" />
+
+	<!--
 		Item Definitions
 	-->
-	<export function="getItemDefinition" />
-	<export function="getItemDefinitionId" />
-	<export function="getItemDefinitionName" />
-	<export function="getItemDefinitionLocalizedName" />
-	<export function="getItemDefinitionWeight" />
-	<export function="getItemDefinitionVolume" />
-	<export function="isItemDefinitionDivisible" />
+	<export type="shared" function="getItemDefinition" />
+	<export type="shared" function="getItemDefinitionId" />
+	<export type="shared" function="getItemDefinitionName" />
+	<export type="shared" function="getItemDefinitionLocalizedName" />
+	<export type="shared" function="getItemDefinitionWeight" />
+	<export type="shared" function="getItemDefinitionVolume" />
+	<export type="shared" function="isItemDefinitionDivisible" />
 
 	<script type="shared" src="itemdefinitions_shared.lua" />
 
@@ -21,28 +26,28 @@
 	<!--
 		Inventory management
 	-->
-	<export function="getInventory" />
-	<export function="getInventories" />
-	<export function="isInventoryReady" />
-	<export function="getInventoryVolume" />
-	<export function="getInventoryUsedVolume" />
-	<export function="getInventoryFreeVolume" />
-	<export function="getInventoryMass" />
-	<export function="getInventoryItems" />
-	<export function="getInventoryItemAmount" />
-	<export function="getInventoryIterator" />
-	<export function="canInventoryItemMove" />
+	<export type="shared" function="getInventory" />
+	<export type="shared" function="getInventories" />
+	<export type="shared" function="isInventoryReady" />
+	<export type="shared" function="getInventoryVolume" />
+	<export type="shared" function="getInventoryUsedVolume" />
+	<export type="shared" function="getInventoryFreeVolume" />
+	<export type="shared" function="getInventoryMass" />
+	<export type="shared" function="getInventoryItems" />
+	<export type="shared" function="getInventoryItemAmount" />
+	<export type="shared" function="getInventoryIterator" />
+	<export type="shared" function="canInventoryItemMove" />
 
-	<export function="addInventory" />
-	<export function="setInventoryItems" />
-	<export function="setInventoryItemAmount" />
-	<export function="addInventoryItem" />
-	<export function="removeInventoryItem" />
-	<export function="moveInventoryItem" />
+	<export type="server" function="addInventory" />
+	<export type="server" function="setInventoryItems" />
+	<export type="server" function="setInventoryItemAmount" />
+	<export type="server" function="addInventoryItem" />
+	<export type="server" function="removeInventoryItem" />
+	<export type="server" function="moveInventoryItem" />
 
-	<export function="openInventory" />
-	<export function="closeInventory" />
-	<export function="moveInventoryItem" />
+	<export type="client" function="openInventory" />
+	<export type="client" function="closeInventory" />
+	<export type="client" function="moveInventoryItem" />
 
 	<script type="client" src="inventory_client.lua" />
 	<script type="server" src="inventory_server.lua" />
@@ -51,7 +56,7 @@
 	<!--
 		Player inventory
 	-->
-	<export function="getPlayerInventory" />
+	<export type="client" function="getPlayerInventory" />
 
 	<script type="client" src="player_client.lua" />
 	<script type="server" src="player_server.lua" />

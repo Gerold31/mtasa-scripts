@@ -1,19 +1,21 @@
-local inventory = nil
+local d = {
+	inventory = nil
+}
 
 function getPlayerInventory()
-	return inventory
+	return d.inventory
 end
 
 addEventHandler("onClientResourceStart", resourceRoot,
 	function()
-		inventory = assert(openInventory(getLocalPlayer(), "main"))
+		d.inventory = assert(openInventory(getLocalPlayer(), "main"))
 	end, false, "high"
 )
 
 addEventHandler("onClientResourceStop", resourceRoot,
 	function()
-		closeInventory(inventory)
-		inventory = nil
+		closeInventory(d.inventory)
+		d.inventory = nil
 	end, false, "low"
 )
 

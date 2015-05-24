@@ -1,52 +1,82 @@
 ItemDefinitions = {}
 
--- TODO: use id as opject to reduce network load
-
 function getItemDefinition(id)
-	local definition = ItemDefinitions[id]
-	if (definition == nil) then
-		outputDebugString("Request invalid item-definition: " .. tostring(id), 2)
+	if (ItemDefinitions[id] == nil) then
+		invalid_call("Invalid id of item definition.")
+		return nil
 	end
-	return definition
+	return setmetatable({id=id}, ItemDefinition)
 end
 
 function getItemDefinitionId(definition)
-	return definition.id
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return data.id
 end
 
 function getItemDefinitionName(definition)
-	return definition.name
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return data.name
 end
 
 function getItemDefinitionLocalizedName(definition, lang)
-	if (not definition) then return nil end
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
 	lang = lang or getLocalization().code
-	local name = definition.localisations[lang]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+
+	local name = data.localisations[lang]
 	if (name == nil) then
-		return definition.name
+		return data.name
 	else
 		return name
 	end
 end
 
 function getItemDefinitionWeight(definition)
-	return definition.weight
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return data.weight
 end
 
 function getItemDefinitionVolume(definition)
-	return definition.volume
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return data.volume
 end
 
 function isItemDefinitionDivisible(definition)
-	return definition.divisible
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return data.divisible
 end
 
 function doItemDefinitionToString(definition)
 	return "{ItemDefinition:" .. definition.id .. "}"
-end
-
-function doItemDefinitionWriteError(table, key, value)
-	outputDebugString("You cannot write to a item-definition: [" .. tostring(key) .. "]=" .. tostring(value), 1)
 end
 
 ItemDefinition = {
@@ -55,7 +85,8 @@ ItemDefinition = {
 	getLocalizedName = getItemDefinitionLocalizedName,
 	getWeight = getItemDefinitionWeight,
 	getVolume = getItemDefinitionVolume,
-	isDivisible = isItemDefinitionDivisible
+	isDivisible = isItemDefinitionDivisible,
+	__tostring = doItemDefinitionToString
 }
 ItemDefinition.__index = ItemDefinition
 
@@ -137,13 +168,7 @@ function reloadItemDefinitions()
 						outputDebugString("Invalid tag in itemdefinitions_shared.xml: " .. tostring(itemnode:getName()), 2)
 					end
 				end
-				setmetatable(definition, ItemDefinition)
-				ItemDefinitions[id] = setmetatable({}, {
-					__index = definition,
-					__newindex = doItemDefinitionWriteError,
-					__metatable = false,
-					__tostring = doItemDefinitionToString
-				})
+				ItemDefinitions[id] = definition
 			end
 		else
 			outputDebugString("Invalid tag in itemdefinitions_shared.xml: " .. tostring(node:getName()), 2)

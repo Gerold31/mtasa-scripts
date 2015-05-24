@@ -5,7 +5,7 @@
 --   * ´onClientInventoryClose´ can run without running of ´onClientInventoryOpen´ before.
 --     It means that the server rejected the request.
 --   * ´onClientInventoryClose´ can run without calling of ´closeInventory´.
---   * It means that the server has closed the inventory for you.
+--     It means that the server has closed the inventory for you.
 -- Inventories[element][key]:
 --   * ´items´ and ´volume´ are nil until server sends the data
 --   * ´openCount´ saves how often the inventory was opend

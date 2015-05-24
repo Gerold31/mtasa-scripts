@@ -37,16 +37,15 @@ end
 
 function getInventoryVolume(inventory)
 	local inv = getInv(inventory)
-	if (inv == nil) then
-		return nil
-	else
-		return inv.volume
-	end
+	if (checkInvalidInventory(inv)) then return nil end
+
+	return inv.volume
 end
 
 function getInventoryUsedVolume(inventory)
 	local inv = getInv(inventory)
-	if (inv == nil) then return nil end
+	if (checkInvalidInventory(inv)) then return nil end
+
 	local volume = 0
 	for _, stack in pairs(inv.items) do
 		volume = volume + stack.amount * getItemDefinitionVolume(stack.type)
@@ -56,13 +55,14 @@ end
 
 function getInventoryFreeVolume(inventory)
 	local inv = getInv(inventory)
-	if (inv == nil) then return nil end
+	if (checkInvalidInventory(inv)) then return nil end
 	return getInventoryVolume(inventory) - getInventoryUsedVolume(inventory)
 end
 
 function getInventoryMass(inventory)
 	local inv = Inventories[inventory.element][inventory.key]
-	if (inv == nil) then return nil end
+	if (checkInvalidInventory(inv)) then return nil end
+
 	local mass = 0
 	for _, stack in pairs(inv.items) do
 		mass = mass + stack.amount * getItemDefinitionWeight(stack.type)
@@ -72,7 +72,7 @@ end
 
 function getInventoryItems(inventory)
 	local inv = getInv(inventory)
-	if (inv == nil) then return nil end
+	if (checkInvalidInventory(inv)) then return nil end
 
 	local items = {}
 	for definitionId, stack in pairs(inv.items) do
@@ -87,7 +87,8 @@ end
 function getInventoryItemAmount(inventory, itemdef)
 	local definitionId = getItemDefinitionId(itemdef)
 	local inv = getInv(inventory)
-	if (inv == nil) then return nil end
+	if (checkInvalidInventory(inv)) then return nil end
+
 	if (inv.items[definitionId] == nil) then return 0 end
 	return inv.items[definitionId].amount
 end
@@ -117,6 +118,18 @@ end
 
 function doInventoryToString(inventory)
 	return "{Inventory:" .. tostring(inventory.element) .. ":" .. tostring(inventory.key) .. "}"
+end
+
+function checkInvalidInventory(inv)
+	if (inv == nil) then
+		invalid_call("Invalid inventory.", 1)
+		return true
+	end
+	if (inv.items == nil) then
+		invalid_call("Inventory not ready.", 1)
+		return true
+	end
+	return false
 end
 
 

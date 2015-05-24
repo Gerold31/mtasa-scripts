@@ -45,11 +45,13 @@ function removeInventory(element, key)
 end
 
 function setInventoryItems(inventory, items)
+	local inv = getInv(inventory)
+	if (checkInvalidInventory(inv)) then return nil end
+
 	if (not setItems(inventory, items)) then
 		return false
 	end
 
-	local inv = getInv(inventory)
 	local listeners = inv.listeners
 	triggerEvent("onInventorySetItems", inventory.element)
 	triggerClientEvent(listeners, "clientInventorySetItems", inventory.element, inventory.key, items)
@@ -58,11 +60,13 @@ function setInventoryItems(inventory, items)
 end
 
 function setInventoryItemAmount(inventory, itemdef, amount)
+	local inv = getInv(inventory)
+	if (checkInvalidInventory(inv)) then return nil end
+
 	if (not setItemAmount(inventory, itemdef, amount)) then
 		return false
 	end
 
-	local inv = getInv(inventory)
 	local listeners = inv.listeners
 	triggerEvent("onInventorySetItemAmount", inventory.element, inventory, itemdef, amount)
 	triggerClientEvent(listeners, "clientInventorySetItemAmount", inventory.element, inventory.key, getItemDefinitionId(itemdef), amount)
