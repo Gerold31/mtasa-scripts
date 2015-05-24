@@ -1,10 +1,43 @@
 <meta>
 	<info author="Gerold" description="vehicle scripts" version="0.1" type="script" />
-
+	<min_mta_version client="1.4.1" server="1.4.1" />
 	<oop>true</oop>
+
+	<!--
+		Utils
+	-->
+	<script type="shared" src="utils_shared.lua" />
+
+	<!--
+		Vehicle Definitions
+	-->
+	<export type="shared" function="getVehicleDefinition" />
+	<export type="shared" function="getVehicleDefinitionId" />
+	<export type="shared" function="getVehicleDefinitionName" />
+	<export type="shared" function="getVehicleDefinitionLocalizedName" />
+	<export type="shared" function="getVehicleDefinitionWeight" />
+	<export type="shared" function="getVehicleDefinitionVolume" />
+	<export type="shared" function="isVehicleDefinitionDivisible" />
+
+	<script type="shared" src="vehicledefinitions_shared.lua" />
+
+	<file src="vehicledefinitions_shared.xml" />
+
+
+	<!--
+		Management
+	-->
+	<export function="spawnVehicle" type="server" http="false"/>
+
+	<script type="server" src="management_server.lua" />
+
 	<script type="client" src="noexplosion_client.lua" />
 	<script type="client" src="damage_client.lua" />
 	<script type="client" src="engine_client.lua" />
 	<script type="server" src="attach_server.lua" />
 	<script type="client" src="attach_client.lua" />
+	<script type="server" src="handling_server.lua" />
+
+	<include resource="utils" />
+	<include resource="inventory" />
 </meta>
