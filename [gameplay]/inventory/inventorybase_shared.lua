@@ -4,7 +4,7 @@
 --   * ´volume´ saves the amount of space in the inventory
 --   * ´items´ saves the items in the inventory
 --   * the keys of ´items´ are the ids of the item-definition
---   * the values in ´items´ are tables like {type=itemdef, amount=n, userdata={}}
+--   * the values in ´items´ are tables like {type=itemdef, amount=n, data={}}
 
 
 Inventories = {}
@@ -39,7 +39,7 @@ function getItems0(inv)
 		table.insert(items, {
 			["type"] = defId,
 			["amount"] = stack.amount,
-			["userdata"] = deepcopy(stack.userdata)
+			["data"] = deepcopy(stack.data)
 		})
 	end
 	return items
@@ -51,20 +51,37 @@ function setItems0(inv, items)
 
 	inv.items = {}
 	for _, stack in pairs(items) do
+		local defId = stack.type
 		local itemdef = getItemDefinition(stack.type)
+		local defaultData = getItemDefinitionDefaultData(itemdef)
 		if (itemdef == nil) then
 			invalid_call("Invalid item definition in items. Ignoring them.")
-		else
-			inv.items[stack.type] = {
-				["type"] = itemdef,
-				["amount"] = stack.amount,
-				["userdata"] = {}
-			}
-			for key, data in pairs(stack.userdata) do
-				if (type(key) == "number" and key <= amount) then
-					inv.items[defId].userdata[key] = data
+		elseif (defaultData == nil or stack.data == nil) then
+			local amount = stack.amount
+			if (type(amount) ~= "number" or amount < 0) then
+				invalid_call("Invalid amount in items. Ignoring them.")
+			elseif (amount > 0) then
+				inv.items[defId] = {
+					["type"] = itemdef,
+					["amount"] = amount
+				}
+				if (defaultData ~= nil) then
+					inv.items[defId].data = {}
+					for i = 1, amount do
+						table.insert(inv.items[defId].data, defaultData)
+					end
 				end
 			end
+		else
+			inv.items[defId] = {
+				["type"] = itemdef,
+				["data"] = {}
+			}
+			for _, data in ipairs(stack.data) do
+				table.insert(inv.items[defId].data, defaultData)
+				setItemData0(inv, itemdef, #inv.items[defId].data, data)
+			end
+			inv.items[defId].amount = #inv.items[defId].data
 		end
 	end
 
@@ -83,19 +100,32 @@ function setItemAmount0(inv, itemdef, amount)
 	if (not isReady0(inv)) then return false end
 	if (amount < 0) then return false end
 
+	local defaultData = getItemDefinitionDefaultData(itemdef)
 	if (amount > 0 and inv.items[defId] == nil) then
 		inv.items[defId] = {
 			["type"] = itemdef,
-			["amount"] = amount,
-			["userdata"] = {}
+			["amount"] = amount
 		}
+		if (defaultData ~= nil) then
+			inv.items[defId].data = {}
+			for i = 1, amount do
+				table.insert(inv.items[defId].data, defaultData)
+			end
+		end
 		return true
 	end
 	if (amount > 0 and inv.items[defId] ~= nil) then
 		inv.items[defId].amount = amount
-		for key, _ in pairs(inv.items[defId].userdata) do
-			if (key > amount) then
-				inv.items[defId].userdata[key] = nil
+		if (defaultData ~= nil) then
+			local diff = amount - inv.items[defId].amount
+			if (diff > 0) then
+				for i = 1, diff do
+					table.insert(inv.items[defId].data, defaultData)
+				end
+			elseif (diff < 0) then
+				for i = 1, -diff do
+					table.remove(inv.items[defId].data)
+				end
 			end
 		end
 		return true
@@ -106,27 +136,145 @@ function setItemAmount0(inv, itemdef, amount)
 	end
 end
 
-function canItemMove0(from, to, itemdef, amount)
-	if (not isReady0(from) or not isReady0(to) or not itemdef or not amount or amount < 0) then
+function addItems0(inv, itemdef, data)
+	local defId = getItemDefinitionId(itemdef)
+	if (not isReady0(inv)) then return false end
+
+	if (type(data) == "number") then
+		if (data < 0) then
+			return false
+		end
+		return setItemAmount0(inv, itemdef, getItemAmount0(inv, itemdef) + data)
+	end
+
+	local defaultData = getItemDefinitionDefaultData(itemdef)
+	if (inv.items[defId] == nil) then
+		inv.items[defId] = {
+			["type"] = itemdef,
+			["amount"] = 0
+		}
+		if (defaultData ~= nil) then
+			inv.items[defId].data = {}
+		end
+	end
+	for _, itemdata in ipairs(data) do
+		inv.items[defId].amount = inv.items[defId].amount + 1
+		if (defaultData ~= nil) then
+			table.insert(inv.items[defId].data, defaultData)
+			setItemData0(inv, itemdef, #inv.items[defId].data, itemdata)
+		end
+	end
+	return true
+end
+
+function removeItems0(inv, itemdef, pos)
+	local defId = getItemDefinitionId(itemdef)
+	if (not isReady0(inv)) then return false end
+
+	if (type(pos) ~= "number") then
+		for _, itempos in ipairs(pos) do
+			if (itempos > inv.items[defId].amount) then
+				return false
+			end
+		end
+	end
+
+	local defaultData = getItemDefinitionDefaultData(itemdef)
+	if (defaultData == nil) then
+		if (type(pos) ~= "number") then
+			pos = #pos
+		end
+		if (pos < 0) then
+			return false
+		end
+		if (setItemAmount0(inv, itemdef, getItemAmount0(inv, itemdef) - pos)) then
+			return pos
+		else
+			return false
+		end
+	end
+
+	assert(inv.items[defId].amount == #inv.items[defId].data)
+
+	local ret = {}
+	if (type(pos) == "number") then
+		for i = 1, pos do
+			table.insert(ret, table.remove(inv.items[defId].data))
+		end
+	else
+		table.sort(pos,
+			function (w1,w2)
+				if w1 > w2 then return true end
+			end
+		)
+		for _, itempos in ipairs(pos) do
+			if (itempos <= #inv.items[defId].data) then
+				table.insert(ret, table.remove(inv.items[defId].data, itempos))
+			end
+		end
+	end
+	inv.items[defId].amount = #inv.items[defId].data
+	return ret
+end
+
+function canItemsMove0(from, to, itemdef, amount)
+	if (not isReady0(from) or not isReady0(to) or not itemdef or not amount) then
 		return false
 	end
-	if (getItemAmount0(from, itemdef) < amount) then
+	if (type(amount) == "number" and amount < 0) then
+		return false
+	end
+	local fromAmount = getItemAmount0(from, itemdef)
+	if (type(amount) == "table") then
+		for _, pos in ipairs(amount) do
+			if (pos > fromAmount or pos < 1) then
+				return false
+			end
+		end
+	end
+	if (fromAmount < amount) then
 		return false
 	end
 	return true
 end
 
-function moveItem0(from, to, itemdef, amount)
-	if (not canItemMove0(from, to, itemdef, amount)) then
+function moveItems0(from, to, itemdef, amount)
+	if (not canItemsMove0(from, to, itemdef, amount)) then
 		return false
 	end
-	local fOffset = getItemAmount0(from) - amount
-	local tOffset = getItemAmount0(to)
-	assert(setItemAmount0(to, itemdef, getItemAmount0(to, itemdef) + amount))
-	for key, data in pairs(from[defId].userdata) do
-		if (key > fOffset) then
-			to[defId].userdata[tOffset + key - fOffset] = data
+	assert(addItems0(to, itemdef, assert(removeItems0(from, itemdef, amount)) ))
+end
+
+function setItemData0(inv, itemdef, pos, data)
+	local defId = getItemDefinitionId(itemdef)
+	if (inv.items[defId] == nil) then
+		invalid_call("There are no items of this type: " .. tostring(defId))
+		return false
+	end
+	if (pos < 1 or pos > #inv.items[defId].data) then
+		invalid_call("Invalid index of item data.")
+		return false
+	end
+	local dataTypes = getItemDefinitionDataTypes(itemdef)
+	local itemdata = inv.items[defId].data[pos]
+	for key, value in pairs(data) do
+		if (type(value) == dataTypes[key]) then
+			itemdata[key] = value
+		else
+			invalid_call("Invalid data for item: " .. tostring(defId))
 		end
 	end
-	assert(setItemAmount0(from, itemdef, getItemAmount0(from, itemdef) - amount))
+end
+
+function getItemData0(inv, itemdef, pos)
+	local defId = getItemDefinitionId(itemdef)
+	if (inv.items[defId] == nil) then
+		invalid_call("There are no items of this type: " .. tostring(defId))
+		return false
+	end
+	if (pos < 1 or pos > #inv.items[defId].data) then
+		invalid_call("Invalid index of item data.")
+		return false
+	end
+	return inv.items[defId].data[pos]
 end

@@ -86,7 +86,7 @@ function canInventoryItemMove(from, to, itemdef, amount)
 	if (checkInvalidInventory(invTo)) then return false end
 
 	if (getInventoryFreeVolume(to) < amount * getItemDefinitionVolume(itemdef)) then return false end
-	return canItemMove0(invFrom, invTo, itemdef, amount)
+	return canItemsMove0(invFrom, invTo, itemdef, amount)
 end
 
 function doInventoryNewIndex(table, key, value)

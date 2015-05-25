@@ -18,6 +18,9 @@
 	<export type="shared" function="getItemDefinitionMass" />
 	<export type="shared" function="getItemDefinitionVolume" />
 	<export type="shared" function="isItemDefinitionDivisible" />
+	<export type="shared" function="getItemDefinitionDataTypes" />
+	<export type="shared" function="getItemDefinitionDefaultData" />
+	<export type="shared" function="getItemDefinitionWeaponInfo" />
 
 	<script type="shared" src="itemdefinitions_shared.lua" />
 

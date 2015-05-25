@@ -52,7 +52,7 @@ function getItemDefinitionMass(definition)
 		invalid_call("Invalid item definition.")
 		return nil
 	end
-	return data.weight
+	return data.mass
 end
 
 function getItemDefinitionVolume(definition)
@@ -72,7 +72,37 @@ function isItemDefinitionDivisible(definition)
 		invalid_call("Invalid item definition.")
 		return nil
 	end
-	return data.divisible
+	return data.tags["divisible"] or false
+end
+
+function getItemDefinitionDataTypes(definition)
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return deepcopy(data.data_types)
+end
+
+function getItemDefinitionDefaultData(definition)
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return deepcopy(data.data_default)
+end
+
+function getItemDefinitionWeaponInfo(definition)
+	local id = type(definition) == "table" and definition.id or definition
+	local data = ItemDefinitions[id]
+	if (data == nil) then
+		invalid_call("Invalid item definition.")
+		return nil
+	end
+	return deepcopy(data.weapon)
 end
 
 function doItemDefinitionToString(definition)
@@ -83,9 +113,12 @@ ItemDefinition = {
 	getId = getItemDefinitionId,
 	getName = getItemDefinitionName,
 	getLocalizedName = getItemDefinitionLocalizedName,
-	getWeight = getItemDefinitionWeight,
+	getMass = getItemDefinitionMass,
 	getVolume = getItemDefinitionVolume,
 	isDivisible = isItemDefinitionDivisible,
+	getDataTypes = getItemDefinitionDataTypes,
+	getDefaultData = getItemDefinitionDataTypes,
+	getWeaponInfo = getItemDefinitionWeaponInfo,
 	__tostring = doItemDefinitionToString
 }
 ItemDefinition.__index = ItemDefinition
@@ -104,9 +137,9 @@ function reloadItemDefinitions()
 			-- read attributes of item tag
 			local id = node:getAttribute("id")
 			local name = node:getAttribute("name")
-			local weight = node:getAttribute("weight")
+			local mass = node:getAttribute("mass")
 			local volume = node:getAttribute("volume")
-			local divisible = node:getAttribute("divisible")
+			local tags = node:getAttribute("tags")
 
 			-- interpret attributes
 			---- id
@@ -115,29 +148,23 @@ function reloadItemDefinitions()
 			if (name == false) then
 				name = nil
 			end
-			---- weight
-			if (weight == false) then
-				weight = 1
+			---- mass
+			if (mass == false) then
+				mass = 1
 			else
-				weight = tonumber(weight)
+				mass = tonumber(mass)
 			end
 			---- volume
 			volume = tonumber(volume)
-			---- divisible
-			if (divisible == false or divisible == "false") then
-				divisible = false
-			elseif (divisible == "true") then
-				divisible = true
-			else
-				divisible = nil
-			end
+			---- tags
+			tags = tags or ""
 
 			-- check for invalid attributes
 			local valid = true
 			if (id == nil) then valid = false end
-			if (weight == nil) then valid = false end
+			if (mass == nil) then valid = false end
 			if (volume == nil) then valid = false end
-			if (divisible == nil) then valid = false end
+			if (tags == nil) then valid = false end
 
 			if (not valid or ItemDefinitions[id] ~= nil) then
 				outputDebugString("Skip item in itemdefinitions_shared.xml: " .. tostring(id), 1)
@@ -146,11 +173,15 @@ function reloadItemDefinitions()
 				local definition = {
 					["id"]=id,
 					["name"]=name,
-					["weight"]=weight,
+					["mass"]=mass,
 					["volume"]=volume,
-					["divisible"]=divisible,
-					["localisations"]={}
+					["tags"]={},
+					["localisations"]={},
+					["data_types"]={}
 				}
+				for tag in tags:gmatch("[^%s,]+") do
+					definition.tags[tag] = true
+				end
 				for _, itemnode in ipairs(node:getChildren()) do
 					if (itemnode:getName() == "desc") then
 						local dname = itemnode:getAttribute("name")
@@ -163,6 +194,44 @@ function reloadItemDefinitions()
 							else
 								definition["localisations"][dlang] = dname
 							end
+						end
+					elseif (itemnode:getName() == "weapon") then
+						local weaponId = tonumber(itemnode:getAttribute("id"))
+						local weaponSlot = tonumber(itemnode:getAttribute("slot"))
+						local weaponType = itemnode:getAttribute("type") or "default"
+						if (weaponId == nil or weaponSlot == nil) then
+							outputDebugString("Invalid 'weapon'-tag for item '" .. tostring(id) .. "'.", 2)
+						elseif (definition["weapon"] ~= nil) then
+							outputDebugString("Multiple 'weapon'-tags for item '" .. tostring(id) .. "'.", 2)
+						else
+							definition["weapon"] = {
+								["id"] = weaponId,
+								["slot"] = weaponSlot,
+								["type"] = weaponType
+							}
+						end
+					elseif (itemnode:getName() == "data") then
+						local dataName = itemnode:getAttribute("name")
+						local dataType = itemnode:getAttribute("type")
+						local dataValue = itemnode:getAttribute("value")
+						if (dataValue == false) then
+							dataValue = nil
+						else
+							dataValue = convertToType(dataValue, dataType)
+							if (dataValue == nil) then
+								outputDebugString("Invalid value for 'data'-tag of item '" .. tostring(id) .. "'.", 2)
+							end
+						end
+						if (dataName == false or dataType == false) then
+							outputDebugString("Invalid 'data'-tag for item '" .. tostring(id) .. "'.", 2)
+						elseif (definition.tags.divisible) then
+							outputDebugString("'data'-tag is not allowed for divisible items: " .. tostring(id), 2)
+						else
+							definition.data_types[dataName] = dataType
+							if (definition.data_default == nil) then
+								definition.data_default = {}
+							end
+							definition.data_default[dataName] = dataValue
 						end
 					else
 						outputDebugString("Invalid tag in itemdefinitions_shared.xml: " .. tostring(itemnode:getName()), 2)
@@ -180,3 +249,23 @@ function reloadItemDefinitions()
 end
 addEventHandler("onResourceStart", resourceRoot, reloadItemDefinitions, false, "high+1")
 addEventHandler("onClientResourceStart", resourceRoot, reloadItemDefinitions, false, "high+1")
+
+function convertToType(value, valueType)
+	if (value == false) then
+		return nil
+	elseif (valueType == "number") then
+		return tonumber(value) or nil
+	elseif (valueType == "string") then
+		return value or nil
+	elseif (valueType == "boolean") then
+		if (value == "true" or value == "1") then
+			return true
+		elseif (value == "false" or value == "0") then
+			return false
+		else
+			return nil
+		end
+	elseif (valueType == "table") then
+		return fromJSON(value) or nil
+	end
+end
