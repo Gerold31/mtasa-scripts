@@ -74,8 +74,10 @@ end
 function despawn(id, player)
 	for _, vehicle in pairs(getElementsByType('vehicle')) do
 		if(getElementData(vehicle, "id") == id) then
+			x,y,z = getElementPosition(vehicle)
+			rx,ry,rz = getElementRotation(vehicle)
 			destroyElement(vehicle)
-			dbExec(dbConnection, "UPDATE vehicles SET spawned='0' WHERE id=?", id)
+			dbExec(dbConnection, "UPDATE vehicles SET posX=?, posY=?, posZ=?, rotX=?, rotY=?, rotZ=?, spawned='0' WHERE id=?", x,y,z, rx,ry,rz, id)
 			return
 		end
 	end
