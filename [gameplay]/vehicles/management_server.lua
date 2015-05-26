@@ -21,7 +21,7 @@ function initResource()
 			end
 		 end, dbConnection, "SELECT id, vehicleID, posX, posY, posZ, rotX, rotY, rotZ FROM `vehicles` WHERE spawned == 1")
 end
-addEventHandler("onResourceStart", getRootElement(), initResource)
+addEventHandler("onResourceStart", getResourceRootElement(getThisResource()), initResource)
 
 
 function stopResource()
@@ -36,7 +36,7 @@ function stopResource()
 		end
 	end
 end
-addEventHandler("onResourceStop", getRootElement(), stopResource)
+addEventHandler("onResourceStop", getResourceRootElement(getThisResource()), stopResource)
 
 function create(id, x, y, z)
 	-- @todo verify id
