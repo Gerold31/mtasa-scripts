@@ -8,8 +8,16 @@ function getVehicleHandlingProperty(vehid, prop)
 	return call(getResourceFromName("utils"), "getVehicleHandlingProperty", vehid, prop)
 end
 
-function spawnVehicle(vehid, x,y,z)
-	return call(getResourceFromName("vehicles"), "spawnVehicle", vehid, x,y,z)
+function createVehicle(vehid, x,y,z, player)
+	return call(getResourceFromName("vehicles"), "create", vehid, x,y,z, player)
+end
+
+function spawnVehicle(id, player)
+	return call(getResourceFromName("vehicles"), "spawn", id, player)
+end
+
+function despawnVehicle(id, player)
+	return call(getResourceFromName("vehicles"), "despawn", id, player)
 end
 
 for i, id in pairs(vehicleIDs) do
@@ -57,18 +65,24 @@ function getVH(thePlayer, command, prop)
 end
 addCommandHandler("getVH", getVH)
 
--- spawns vehicle near player
+-- creates vehicle near player
 function createVehicleForPlayer(thePlayer, command, vehicleModel)
 	local x,y,z = getElementPosition(thePlayer) -- get the position of the player
 	x = x + 5 -- add 5 units to the x position
-	local createdVehicle = spawnVehicle(tonumber(vehicleModel),x,y,z)
+	local createdVehicle = createVehicle(tonumber(vehicleModel),x,y,z, thePlayer)
 	-- check if the return value was ''false''
-	if (createdVehicle == false) then
+	if(createdVehicle) then
 		-- if so, output a message to the chatbox, but only to this player.
-		outputChatBox("Failed to create vehicle.",thePlayer)
+		outputChatBox("Created vehicle " .. createdVehicle,thePlayer)
 	end
 end
 addCommandHandler("cv", createVehicleForPlayer)
+
+-- spawns vehicle
+addCommandHandler("spawn", function(player, command, id) spawnVehicle(tonumber(id), player) end)
+
+-- despawns vehicle
+addCommandHandler("despawn", function(player, command, id) despawnVehicle(tonumber(id), player) end)
 
 -- gives weapon to player
 function createWeapon(thePlayer, command, weaponid)
