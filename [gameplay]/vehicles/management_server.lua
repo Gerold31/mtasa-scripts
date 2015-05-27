@@ -49,12 +49,21 @@ function create(id, x, y, z)
 	return tostring(vid)
 end
 
+function delete(id, player)
+	for _, vehicle in pairs(getElementsByType('vehicle')) do
+		if(getElementData(vehicle, "id") == id) then
+			destroyElement(vehicle)
+		end
+	end
+	dbExec(dbConnection, "DELETE FROM vehicles WHERE id=?", id)
+end
+
 function spawn(id, player)
 	dbQuery(
 		function(qh)
 			local result, num_affected_rows = dbPoll(qh, 0)
 			if result then
-				if(num_affected_rows == 1) then
+				if(num_affected_rows == 1 and result[1]) then
 					local row = result[1]
 					if(row["spawned"] == 1) then
 						outputChatBox("Vehicle is already spawned", player)

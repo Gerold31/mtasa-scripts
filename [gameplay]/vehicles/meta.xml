@@ -27,9 +27,10 @@
 	<!--
 		Management
 	-->
-	<export function="create" type="server" http="false"/>
-	<export function="spawn" type="server" http="false"/>
-	<export function="despawn" type="server" http="false"/>
+	<export function="create" type="server" http="false" />
+	<export function="delete" type="server" http="false" />
+	<export function="spawn" type="server" http="false" />
+	<export function="despawn" type="server" http="false" />
 
 	<script type="server" src="management_server.lua" />
 

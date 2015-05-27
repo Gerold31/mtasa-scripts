@@ -12,6 +12,10 @@ function createVehicle(vehid, x,y,z, player)
 	return call(getResourceFromName("vehicles"), "create", vehid, x,y,z, player)
 end
 
+function deleteVehicle(id, player)
+	return call(getResourceFromName("vehicles"), "delete", id, player)
+end
+
 function spawnVehicle(id, player)
 	return call(getResourceFromName("vehicles"), "spawn", id, player)
 end
@@ -77,6 +81,9 @@ function createVehicleForPlayer(thePlayer, command, vehicleModel)
 	end
 end
 addCommandHandler("cv", createVehicleForPlayer)
+
+-- deletes vehicle
+addCommandHandler("dv", function(player, command, id) deleteVehicle(tonumber(id), player) end)
 
 -- spawns vehicle
 addCommandHandler("spawn", function(player, command, id) spawnVehicle(tonumber(id), player) end)
