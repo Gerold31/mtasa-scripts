@@ -40,7 +40,8 @@ end
 addEventHandler("onResourceStop", getResourceRootElement(getThisResource()), stopResource)
 
 function create(id, x, y, z)
-	-- @todo verify id
+	local def = getVehicleDefinition(id)
+	if(not def) then return nil end
 	local qh = dbQuery(dbConnection, "INSERT INTO vehicles(vehicleID, posX, posY, posZ, rotX, rotY, rotZ, spawned, " ..
 					   "health, isDamageProof, panel0, panel1, panel2, panel3, panel4, panel5, panel6) " ..
 					   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",

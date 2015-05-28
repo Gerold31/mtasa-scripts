@@ -78,6 +78,8 @@ function createVehicleForPlayer(thePlayer, command, vehicleModel)
 	if(createdVehicle) then
 		-- if so, output a message to the chatbox, but only to this player.
 		outputChatBox("Created vehicle " .. createdVehicle,thePlayer)
+	else
+		outputChatBox("Failed to create vehicle", thePlayer)
 	end
 end
 addCommandHandler("cv", createVehicleForPlayer)
