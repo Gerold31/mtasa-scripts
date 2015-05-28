@@ -99,7 +99,7 @@ end
 function spawnVehicle(row)
 	local def = getVehicleDefinition(row["vehicleID"])
 	if(def) then
-		local vehicle = createVehicle(row["vehicleID"], row["posX"],row["posY"],row["posZ"], row["rotX"],row["rotZ"],row["rotZ"])
+		local vehicle = createVehicle(row["vehicleID"], row["posX"],row["posY"],row["posZ"], row["rotX"],row["rotY"],row["rotZ"])
 		if(vehicle) then
 			setElementData(vehicle, "id", row["id"], false)
 
