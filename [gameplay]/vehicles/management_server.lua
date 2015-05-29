@@ -10,7 +10,8 @@ function initResource()
 		return
 	end
 	dbExec(dbConnection, "CREATE TABLE IF NOT EXISTS vehicles(id INTEGER PRIMARY KEY, vehicleID INTEGER, posX REAL, posY REAL, posZ REAL, rotX REAL, rotY REAL, rotZ REAL, spawned INTEGER, " ..
-		   "health INTEGER, isDamageProof INTEGER, panel0 INTEGER, panel1 INTEGER, panel2 INTEGER, panel3 INTEGER, panel4 INTEGER, panel5 INTEGER, panel6 INTEGER)")
+		   "health INTEGER, isDamageProof INTEGER, panel0 INTEGER, panel1 INTEGER, panel2 INTEGER, panel3 INTEGER, panel4 INTEGER, panel5 INTEGER, panel6 INTEGER, " ..
+		   "door0 INTEGER, door1 INTEGER, door2 INTEGER, door3 INTEGER, door4 INTEGER, door5 INTEGER, doorR0 REAL, doorR1 REAL, doorR2 REAL, doorR3 REAL, doorR4 REAL, doorR5 REAL)")
 	dbQuery(
 		function(qh)
 			local result = dbPoll(qh, 0)
@@ -43,9 +44,10 @@ function create(id, x, y, z)
 	local def = getVehicleDefinition(id)
 	if(not def) then return nil end
 	local qh = dbQuery(dbConnection, "INSERT INTO vehicles(vehicleID, posX, posY, posZ, rotX, rotY, rotZ, spawned, " ..
-					   "health, isDamageProof, panel0, panel1, panel2, panel3, panel4, panel5, panel6) " ..
-					   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-					   id, x, y, z, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0)
+					   "health, isDamageProof, panel0, panel1, panel2, panel3, panel4, panel5, panel6, " ..
+					   "door0, door1, door2, door3, door4, door5, doorR0, doorR1, doorR2, doorR3, doorR4, doorR5) " ..
+					   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+					   id, x, y, z, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	local _, _, vid = dbPoll(qh, -1)
 	return tostring(vid)
 end
@@ -108,6 +110,10 @@ function spawnVehicle(row)
 			for i=0,6 do
 				setVehiclePanelState(vehicle, i, row["panel" .. i])
 			end
+			for i=0,5 do
+				setVehicleDoorState(vehicle, i, row["door" .. i])
+				setVehicleDoorOpenRatio(vehicle, i, row["doorR" .. i])
+			end
 
 			-- inventory
 			local invs = getVehicleDefinitionInventories(def)
@@ -132,10 +138,18 @@ function saveVehicle(vehicle)
 	local health = getElementHealth(vehicle)
 	local isDamageProof = isVehicleDamageProof(vehicle) and 1 or 0
 	local panel = {}
+	local door = {}
+	local doorR = {}
 	for i=0,6 do
 		panel[i] = getVehiclePanelState(vehicle, i)
 	end
+	for i=0,5 do
+		door[i] = getVehicleDoorState(vehicle, i)
+		doorR[i] = getVehicleDoorOpenRatio(vehicle, i)
+	end
 	dbExec(dbConnection, "UPDATE vehicles SET posX=?, posY=?, posZ=?, rotX=?, rotY=?, rotZ=?, " ..
-		   "health=?, isDamageProof=?, panel0=?, panel1=?, panel2=?, panel3=?, panel4=?, panel5=?, panel6=? WHERE id=?",
-		   x,y,z, rx,ry,rz, health, isDamageProof, panel[0], panel[1], panel[2], panel[3], panel[4], panel[5], panel[6], id)
+		   "health=?, isDamageProof=?, panel0=?, panel1=?, panel2=?, panel3=?, panel4=?, panel5=?, panel6=?, " ..
+		   "door0=?, door1=?, door2=?, door3=?, door4=?, door5=?, door0=?, doorR1=?, doorR2=?, doorR3=?, doorR4=?, doorR5=? WHERE id=?",
+		   x,y,z, rx,ry,rz, health, isDamageProof, panel[0], panel[1], panel[2], panel[3], panel[4], panel[5], panel[6],
+		   door[0], door[1], door[2], door[3], door[4], door[5], doorR[0], doorR[1], doorR[2], doorR[3], doorR[4], doorR[5], id)
 end
