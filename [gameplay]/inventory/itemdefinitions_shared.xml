@@ -10,157 +10,156 @@
 	-->
 	<item id="101" name="Brass Knuckles" volume="0.1" mass="1">
 		<desc name="Schlagring" lang="de" />
-		<weapon id="1" slot="0" type="melee" />
+		<weapon id="1" type="melee" />
 	</item>
-	<!-- Melee -->
+	<!-- Melee (Slot 1) -->
 	<item id="102" name="Golf Club" volume="10" mass="1">
 		<desc name="Golfschläger" lang="de" />
-		<weapon id="2" slot="1" type="melee" />
+		<weapon id="2" type="melee" />
 	</item>
 	<item id="103" name="Nightstick" volume="0.08" mass="0.3">
 		<desc name="Schlagstock" lang="de" />
-		<weapon id="3" slot="1" type="melee" />
+		<weapon id="3" type="melee" />
 	</item>
 	<item id="104" name="Knife" volume="0.3" mass="0.2">
 		<desc name="Messer" lang="de" />
-		<weapon id="4" slot="1" type="melee" />
+		<weapon id="4" type="melee" />
 	</item>
 	<item id="105" name="Baseball Bat" volume="1.4" mass="0.85">
 		<desc name="Baseballschläger" lang="de" />
-		<weapon id="5" slot="1" type="melee" />
+		<weapon id="5" type="melee" />
 	</item>
 	<item id="106" name="Shovel" volume="8" mass="2">
 		<desc name="Schaufel" lang="de" />
-		<weapon id="6" slot="1" type="melee" />
+		<weapon id="6" type="melee" />
 	</item>
 	<item id="107" name="Pool Cue" volume="1" mass="0.5">
 		<desc name="Billardqueue" lang="de" />
-		<weapon id="7" slot="1" type="melee" />
+		<weapon id="7" type="melee" />
 	</item>
 	<item id="108" name="Katana" volume="0.5" mass="2">
-		<weapon id="8" slot="1" type="melee" />
+		<weapon id="8" type="melee" />
 	</item>
 	<item id="109" name="Chainsaw" volume="15" mass="4">
 		<desc name="Kettensäge" lang="de" />
-		<weapon id="9" slot="1" type="melee" />
+		<weapon id="9" type="melee" />
 	</item>
-	<!-- Handguns -->
+	<!-- Handguns (Slot 2) -->
 	<item id="122" name="Pistol" volume="0.2" mass="0.5">
 		<desc name="Pistole" lang="de" />
-		<weapon id="22" slot="2" />
+		<weapon id="22" />
 	</item>
 	<item id="123" name="Silenced Pistol" volume="0.25" mass="0.6">
 		<desc name="Schallgedämpfte Pistole" lang="de" />
-		<weapon id="23" slot="2" />
+		<weapon id="23" />
 	</item>
 	<item id="124" name="Desert Eagle" volume="0.2" mass="0.8">
-		<desc name="" lang="de" />
-		<weapon id="24" slot="2" />
+		<weapon id="24" />
 	</item>
-	<!-- Shotguns -->
+	<!-- Shotguns (Slot 3) -->
 	<item id="125" name="Shotgun" volume="3" mass="3">
 		<desc name="Schrotflinte" lang="de" />
-		<weapon id="25" slot="3" />
+		<weapon id="25" />
 	</item>
 	<item id="126" name="Sawn-Off Shotgun" volume="2" mass="2.5">
 		<desc name="Abgesägte Schrotflinte" lang="de" />
-		<weapon id="26" slot="3" />
+		<weapon id="26" />
 	</item>
 	<item id="127" name="SPAZ-12 Combat Shotgun" volume="2.8" mass="4.2">
 		<desc name="SPAZ-12" lang="de" />
-		<weapon id="27" slot="3" />
+		<weapon id="27" />
 	</item>
-	<!-- Sub-Machine Guns -->
+	<!-- Sub-Machine Guns (Slot 4) -->
 	<item id="128" name="Uzi" volume="1.5" mass="3.6">
-		<weapon id="28" slot="4" />
+		<weapon id="28" />
 	</item>
 	<item id="129" name="MP5" volume="1.5" mass="3.1">
-		<weapon id="29" slot="4" />
+		<weapon id="29" />
 	</item>
 	<item id="132" name="TEC-9" volume="0.9" mass="1.4">
-		<weapon id="32" slot="4" />
+		<weapon id="32" />
 	</item>
-	<!-- Assault Rifles -->
+	<!-- Assault Rifles (Slot 5) -->
 	<item id="130" name="AK-47" volume="4.2" mass="3.5">
-		<weapon id="30" slot="5" />
+		<weapon id="30" />
 	</item>
 	<item id="131" name="M4" volume="5" mass="2.68">
-		<weapon id="31" slot="5" />
+		<weapon id="31" />
 	</item>
-	<!-- Rifles -->
+	<!-- Rifles (Slot 6) -->
 	<item id="133" name="Country Rifle" volume="2.6" mass="4.1">
 		<desc name="Gewehr" lang="de" />
-		<weapon id="33" slot="6" />
+		<weapon id="33" />
 	</item>
 	<item id="134" name="Sniper Rifle" volume="5" mass="7">
 		<desc name="Scharfschützengewehr" lang="de" />
-		<weapon id="34" slot="6" />
+		<weapon id="34" />
 	</item>
-	<!-- Heavy Weapons -->
+	<!-- Heavy Weapons (Slot 7) -->
 	<item id="135" name="Rocket Launcher" volume="8" mass="10">
 		<desc name="Raketenwerfer" lang="de" />
-		<weapon id="35" slot="7" />
+		<weapon id="35" />
 	</item>
 	<item id="136" name="Heat-Seeking RPG" volume="10" mass="10">
 		<desc name="Wärmesuchender Raketenwerfer" lang="de" />
-		<weapon id="36" slot="7" />
+		<weapon id="36" />
 	</item>
 	<item id="137" name="Flamethrower" volume="14" mass="10">
 		<desc name="Flammenwerfer" lang="de" />
-		<weapon id="37" slot="7" />
+		<weapon id="37" />
 	</item>
 	<item id="138" name="Minigun" volume="10" mass="16">
-		<weapon id="38" slot="7" />
+		<weapon id="38" />
 	</item>
-	<!-- Projectiles -->
+	<!-- Projectiles (Slot 8) -->
 	<item id="116" name="Grenade" volume="0.5" mass="0.25">
 		<desc name="Handgranate" lang="de" />
-		<weapon id="16" slot="8" type="projectile" />
+		<weapon id="16" type="projectile" />
 	</item>
 	<item id="117" name="Tear Gas" volume="0.5" mass="0.25">
 		<desc name="Tränengas" lang="de" />
-		<weapon id="17" slot="8" type="projectile" />
+		<weapon id="17" type="projectile" />
 	</item>
 	<item id="118" name="Molotov Cocktails" volume="1" mass="0.8">
 		<desc name="Molotowcocktail" lang="de" />
-		<weapon id="18" slot="8" type="projectile" />
+		<weapon id="18" type="projectile" />
 	</item>
 	<item id="139" name="Satchel Charges" volume="2.5" mass="1.5">
 		<desc name="Geballte Ladung" lang="de" />
-		<weapon id="39" slot="8" type="projectile" />
+		<weapon id="39" type="projectile" />
 	</item>
-	<!-- Special 1 -->
+	<!-- Special 1 (Slot 9) -->
 	<item id="141" name="Spray Can" volume="0.6" mass="0.4">
 		<desc name="Spraydose" lang="de" />
-		<weapon id="41" slot="9" type="noreload" />
+		<weapon id="41" type="noreload" />
 		<data name="ammo" type="number" value="500" />
 	</item>
 	<item id="142" name="Fire Extinguisher" volume="5.6" mass="3.8">
 		<desc name="Feuerlöscher" lang="de" />
-		<weapon id="42" slot="9" type="noreload" />
+		<weapon id="42" type="noreload" />
 		<data name="ammo" type="number" value="500" />
 	</item>
 	<item id="143" name="Camera" volume="0.4" mass="0.3">
 		<desc name="Kamera" lang="de" />
-		<weapon id="43" slot="9" />
+		<weapon id="43" />
 	</item>
-	<!-- Special 2 -->
+	<!-- Special 2 (Slot 11) -->
 	<item id="144" name="Night-Vision Goggles" volume="0.5" mass="0.3">
 		<desc name="Nachtsichtgerät" lang="de" />
-		<weapon id="44" slot="11" />
+		<weapon id="44" />
 	</item>
 	<item id="145" name="Infrared Goggles" volume="0.5" mass="0.3">
 		<desc name="Infrarotbrille" lang="de" />
-		<weapon id="45" slot="11" />
+		<weapon id="45" />
 	</item>
 	<item id="146" name="Parachute" volume="15" mass="2">
 		<desc name="Fallschirm" lang="de" />
-		<weapon id="46" slot="11" />
+		<weapon id="46" />
 	</item>
-	<!-- Satchel Detonator
+	<!-- Satchel Detonator (Slot 12)
 	<item id="140" name="Satchel Detonator" volume="0.1" mass="0.2">
 		<desc name="Zünder" lang="de" />
-		<weapon id="40" slot="12" />
+		<weapon id="40" />
 	</item>
 	-->
 </items>

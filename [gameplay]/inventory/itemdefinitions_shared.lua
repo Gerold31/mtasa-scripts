@@ -197,16 +197,14 @@ function reloadItemDefinitions()
 						end
 					elseif (itemnode:getName() == "weapon") then
 						local weaponId = tonumber(itemnode:getAttribute("id"))
-						local weaponSlot = tonumber(itemnode:getAttribute("slot"))
 						local weaponType = itemnode:getAttribute("type") or "default"
-						if (weaponId == nil or weaponSlot == nil) then
+						if (weaponId == nil) then
 							outputDebugString("Invalid 'weapon'-tag for item '" .. tostring(id) .. "'.", 2)
 						elseif (definition["weapon"] ~= nil) then
 							outputDebugString("Multiple 'weapon'-tags for item '" .. tostring(id) .. "'.", 2)
 						else
 							definition["weapon"] = {
 								["id"] = weaponId,
-								["slot"] = weaponSlot,
 								["type"] = weaponType
 							}
 						end
