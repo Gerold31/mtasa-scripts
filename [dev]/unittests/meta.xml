@@ -1,0 +1,15 @@
+<meta>
+	<info author="JojOatXGME" description="Resource to provide unit tests" version="0.1" type="script" />
+	<min_mta_version client="1.4.1" server="1.4.1" />
+	<oop>true</oop>
+
+	<script type="client" src="unittests_client.lua" />
+	<script type="server" src="unittests_server.lua" />
+
+	<!--
+		Inventory
+	-->
+	<script type="shared" src="inventory/itemdefinitions_shared.lua" />
+	<script type="server" src="inventory/itemdefinitions_server.lua" />
+
+</meta>
