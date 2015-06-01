@@ -15,3 +15,22 @@ addEventHandler("onClientPlayerVehicleEnter",getRootElement(),
 		end
 	end
 )
+
+addCommandHandler("engine",
+	function()
+		vehicle = getPedOccupiedVehicle(localPlayer)
+		if(vehicle) then
+			if(getVehicleOccupant(vehicle, 0) == localPlayer) then
+				if(getVehicleEngineState(vehicle)) then
+					setVehicleEngineState(vehicle, false)
+				elseif(getElementHealth(vehicle) > engineFailure) then
+					setVehicleEngineState(vehicle, true)
+				end
+			else
+				outputChatBox("You have to be the driver.")
+			end
+		else
+			outputChatBox("You have to be in a car.")
+		end
+	end
+)
