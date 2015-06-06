@@ -1,805 +1,805 @@
 <vehicles>
-	<vehicle id="602" type="car" gvwr="4500" size="4">
+	<vehicle id="602" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Alpha"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="545" type="car" gvwr="4500" size="4">
+	<vehicle id="545" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Hustler"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="496" type="car" gvwr="4500" size="4">
+	<vehicle id="496" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Blista Compact"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="517" type="car" gvwr="4500" size="4">
+	<vehicle id="517" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Majestic"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="401" type="car" gvwr="4500" size="4">
+	<vehicle id="401" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Bravura"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="410" type="car" gvwr="4500" size="4">
+	<vehicle id="410" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Manana"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="518" type="car" gvwr="4500" size="4">
+	<vehicle id="518" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Buccaneer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="600" type="car" gvwr="4500" size="4">
+	<vehicle id="600" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Picador"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="527" type="car" gvwr="4500" size="4">
+	<vehicle id="527" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Cadrona"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="436" type="car" gvwr="4500" size="4">
+	<vehicle id="436" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Previon"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="589" type="car" gvwr="4500" size="4">
+	<vehicle id="589" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Club"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="580" type="car" gvwr="4500" size="4">
+	<vehicle id="580" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Stafford"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="419" type="car" gvwr="4500" size="4">
+	<vehicle id="419" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Esperanto"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="439" type="car" gvwr="4500" size="4">
+	<vehicle id="439" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Stallion"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="533" type="car" gvwr="4500" size="4">
+	<vehicle id="533" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Feltzer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="549" type="car" gvwr="4500" size="4">
+	<vehicle id="549" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Tampa"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="526" type="car" gvwr="4500" size="4">
+	<vehicle id="526" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Fortune"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="491" type="car" gvwr="4500" size="4">
+	<vehicle id="491" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Virgo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="474" type="car" gvwr="4500" size="4">
+	<vehicle id="474" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Hermes"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="445" type="car" gvwr="4500" size="4">
+	<vehicle id="445" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Admiral"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="467" type="car" gvwr="4500" size="6">
+	<vehicle id="467" type="car" gvwr="4500" size="6" fueltank="100">
 		<desc name="Oceanic"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="604" type="car" gvwr="4500" size="6">
+	<vehicle id="604" type="car" gvwr="4500" size="6" fueltank="100">
 		<desc name="Glendale Damaged"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="426" type="car" gvwr="4500" size="4">
+	<vehicle id="426" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Premier"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="507" type="car" gvwr="4500" size="4">
+	<vehicle id="507" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Elegant"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="547" type="car" gvwr="4500" size="4">
+	<vehicle id="547" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Primo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="585" type="car" gvwr="4500" size="4">
+	<vehicle id="585" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Emperor"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="405" type="car" gvwr="4500" size="4">
+	<vehicle id="405" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sentinel"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="587" type="car" gvwr="4500" size="4">
+	<vehicle id="587" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Euros"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="409" type="car" gvwr="4500" size="6">
+	<vehicle id="409" type="car" gvwr="4500" size="6" fueltank="100">
 		<desc name="Stretch"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="466" type="car" gvwr="4500" size="6">
+	<vehicle id="466" type="car" gvwr="4500" size="6" fueltank="100">
 		<desc name="Glendale"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="550" type="car" gvwr="4500" size="4">
+	<vehicle id="550" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sunrise"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="492" type="car" gvwr="4500" size="4">
+	<vehicle id="492" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Greenwood"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="566" type="car" gvwr="4500" size="4">
+	<vehicle id="566" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Tahoma"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="546" type="car" gvwr="4500" size="4">
+	<vehicle id="546" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Intruder"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="540" type="car" gvwr="4500" size="4">
+	<vehicle id="540" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Vincent"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="551" type="car" gvwr="4500" size="4">
+	<vehicle id="551" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Merit"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="421" type="car" gvwr="4500" size="4">
+	<vehicle id="421" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Washington"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="516" type="car" gvwr="4500" size="4">
+	<vehicle id="516" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Nebula"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="529" type="car" gvwr="4500" size="4">
+	<vehicle id="529" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Willard"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="592" type="plane" gvwr="20000" size="-1">
+	<vehicle id="592" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Andromada"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="553" type="plane" gvwr="20000" size="-1">
+	<vehicle id="553" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Nevada"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="577" type="plane" gvwr="20000" size="-1">
+	<vehicle id="577" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="AT-400"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="488" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="488" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="News Chopper"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="511" type="plane" gvwr="20000" size="-1">
+	<vehicle id="511" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Beagle"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="497" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="497" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Police Maverick"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="548" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="548" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Cargobob"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="563" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="563" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Raindance"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="512" type="plane" gvwr="20000" size="-1">
+	<vehicle id="512" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Cropduster"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="476" type="plane" gvwr="20000" size="-1">
+	<vehicle id="476" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Rustler"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="593" type="plane" gvwr="20000" size="-1">
+	<vehicle id="593" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Dodo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="447" type="helicopter" gvwr="4500" size="-1">
+	<vehicle id="447" type="helicopter" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Seasparrow"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="425" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="425" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Hunter"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="519" type="plane" gvwr="20000" size="-1">
+	<vehicle id="519" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Shamal"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="520" type="plane" gvwr="20000" size="-1">
+	<vehicle id="520" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Hydra"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="460" type="plane" gvwr="20000" size="-1">
+	<vehicle id="460" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Skimmer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="417" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="417" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Leviathan"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="469" type="helicopter" gvwr="4500" size="-1">
+	<vehicle id="469" type="helicopter" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Sparrow"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="487" type="helicopter" gvwr="20000" size="-1">
+	<vehicle id="487" type="helicopter" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Maverick"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="513" type="plane" gvwr="20000" size="-1">
+	<vehicle id="513" type="plane" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Stuntplane"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="581" type="bike" gvwr="4500" size="1">
+	<vehicle id="581" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="BF-400"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="510" type="BMX" gvwr="4500" size="1">
+	<vehicle id="510" type="BMX" gvwr="4500" size="1" fueltank="100">
 		<desc name="Mountain Bike"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="509" type="BMX" gvwr="4500" size="1">
+	<vehicle id="509" type="BMX" gvwr="4500" size="1" fueltank="100">
 		<desc name="Bike"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="522" type="bike" gvwr="4500" size="1">
+	<vehicle id="522" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="NRG-500"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="481" type="BMX" gvwr="4500" size="1">
+	<vehicle id="481" type="BMX" gvwr="4500" size="1" fueltank="100">
 		<desc name="BMX"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="461" type="bike" gvwr="4500" size="1">
+	<vehicle id="461" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="PCJ-600"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="462" type="bike" gvwr="4500" size="1">
+	<vehicle id="462" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="Faggio"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="448" type="bike" gvwr="4500" size="1">
+	<vehicle id="448" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="Pizzaboy"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="521" type="bike" gvwr="4500" size="1">
+	<vehicle id="521" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="FCR-900"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="468" type="bike" gvwr="4500" size="1">
+	<vehicle id="468" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="Sanchez"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="463" type="bike" gvwr="4500" size="1">
+	<vehicle id="463" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="Freeway"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="586" type="bike" gvwr="4500" size="1">
+	<vehicle id="586" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="Wayfarer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="472" type="boat" gvwr="4500" size="-1">
+	<vehicle id="472" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Coastguard"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="473" type="boat" gvwr="4500" size="-1">
+	<vehicle id="473" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Dinghy"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="493" type="boat" gvwr="4500" size="-1">
+	<vehicle id="493" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Jetmax"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="595" type="boat" gvwr="4500" size="-1">
+	<vehicle id="595" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Launch"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="484" type="boat" gvwr="20000" size="-1">
+	<vehicle id="484" type="boat" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Marquis"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="430" type="boat" gvwr="4500" size="-1">
+	<vehicle id="430" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Predator"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="453" type="boat" gvwr="20000" size="-1">
+	<vehicle id="453" type="boat" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Reefer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="452" type="boat" gvwr="4500" size="-1">
+	<vehicle id="452" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Speeder"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="446" type="boat" gvwr="4500" size="-1">
+	<vehicle id="446" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Squalo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="454" type="boat" gvwr="4500" size="-1">
+	<vehicle id="454" type="boat" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Tropic"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="485" type="car" gvwr="4500" size="4">
+	<vehicle id="485" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Baggage"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="552" type="car" gvwr="4500" size="-1">
+	<vehicle id="552" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Utility Van"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="431" type="truck" gvwr="20000" size="-1">
+	<vehicle id="431" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Bus"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="438" type="car" gvwr="4500" size="4">
+	<vehicle id="438" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Cabbie"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="437" type="truck" gvwr="20000" size="-1">
+	<vehicle id="437" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Coach"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="574" type="car" gvwr="4500" size="4">
+	<vehicle id="574" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sweeper"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="420" type="car" gvwr="4500" size="4">
+	<vehicle id="420" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Taxi"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="525" type="truck" gvwr="20000" size="-1">
+	<vehicle id="525" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Towtruck"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="408" type="truck" gvwr="20000" size="-1">
+	<vehicle id="408" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Trashmaster"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="416" type="car" gvwr="4500" size="-1">
+	<vehicle id="416" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Ambulance"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="596" type="car" gvwr="4500" size="4">
+	<vehicle id="596" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Police LS"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="433" type="truck" gvwr="20000" size="-1">
+	<vehicle id="433" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Barracks"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="597" type="car" gvwr="4500" size="4">
+	<vehicle id="597" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Police SF"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="427" type="truck" gvwr="20000" size="-1">
+	<vehicle id="427" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Enforcer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="599" type="car" gvwr="4500" size="-1">
+	<vehicle id="599" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Police Ranger"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="490" type="truck" gvwr="20000" size="-1">
+	<vehicle id="490" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="FBI Rancher"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="432" type="truck" gvwr="20000" size="-1">
+	<vehicle id="432" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Rhino"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="528" type="truck" gvwr="20000" size="-1">
+	<vehicle id="528" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="FBI Truck"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="601" type="truck" gvwr="20000" size="-1">
+	<vehicle id="601" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="S.W.A.T."/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="407" type="truck" gvwr="20000" size="-1">
+	<vehicle id="407" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Fire Truck"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="428" type="truck" gvwr="20000" size="-1">
+	<vehicle id="428" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Securicar"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="544" type="truck" gvwr="20000" size="-1">
+	<vehicle id="544" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Fire Truck Ladder"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="523" type="bike" gvwr="4500" size="1">
+	<vehicle id="523" type="bike" gvwr="4500" size="1" fueltank="100">
 		<desc name="HPV1000"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="470" type="car" gvwr="4500" size="-1">
+	<vehicle id="470" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Patriot"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="598" type="car" gvwr="4500" size="4">
+	<vehicle id="598" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Police LV"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="499" type="truck" gvwr="20000" size="-1">
+	<vehicle id="499" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Benson"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="588" type="truck" gvwr="20000" size="-1">
+	<vehicle id="588" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Hotdog"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="609" type="truck" gvwr="20000" size="-1">
+	<vehicle id="609" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Boxville Mission"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="403" type="truck" gvwr="20000" size="-1">
+	<vehicle id="403" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Linerunner"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="498" type="truck" gvwr="20000" size="-1">
+	<vehicle id="498" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Boxville"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="514" type="truck" gvwr="20000" size="-1">
+	<vehicle id="514" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Tanker"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="524" type="truck" gvwr="20000" size="-1">
+	<vehicle id="524" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Cement Truck"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="423" type="car" gvwr="4500" size="-1">
+	<vehicle id="423" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Mr. Whoopee"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="532" type="truck" gvwr="20000" size="-1">
+	<vehicle id="532" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Combine Harvester"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="414" type="truck" gvwr="20000" size="-1">
+	<vehicle id="414" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Mule"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="578" type="truck" gvwr="20000" size="-1">
+	<vehicle id="578" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="DFT-30"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="443" type="truck" gvwr="20000" size="-1">
+	<vehicle id="443" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Packer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="486" type="truck" gvwr="20000" size="-1">
+	<vehicle id="486" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Dozer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="515" type="truck" gvwr="20000" size="-1">
+	<vehicle id="515" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Roadtrain"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="406" type="Monster Truck" gvwr="20000" size="-1">
+	<vehicle id="406" type="Monster Truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Dumper"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="531" type="car" gvwr="4500" size="4">
+	<vehicle id="531" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Tractor"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="573" type="Monster Truck" gvwr="20000" size="-1">
+	<vehicle id="573" type="Monster Truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Dune"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="456" type="truck" gvwr="20000" size="-1">
+	<vehicle id="456" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Yankee"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="455" type="truck" gvwr="20000" size="-1">
+	<vehicle id="455" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Flatbed"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="459" type="car" gvwr="4500" size="-1">
+	<vehicle id="459" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Berkley's RC Van"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="543" type="car" gvwr="4500" size="4">
+	<vehicle id="543" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sadler"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="422" type="car" gvwr="4500" size="4">
+	<vehicle id="422" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Bobcat"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="583" type="car" gvwr="4500" size="-1">
+	<vehicle id="583" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Tug"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="482" type="car" gvwr="4500" size="-1">
+	<vehicle id="482" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Burrito"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="478" type="car" gvwr="4500" size="4">
+	<vehicle id="478" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Walton"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="605" type="car" gvwr="4500" size="4">
+	<vehicle id="605" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sadler Damaged"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="554" type="car" gvwr="4500" size="-1">
+	<vehicle id="554" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Yosemite"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="530" type="car" gvwr="4500" size="-1">
+	<vehicle id="530" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Forklift"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="418" type="car" gvwr="4500" size="-1">
+	<vehicle id="418" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Moonbeam"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="572" type="car" gvwr="4500" size="2">
+	<vehicle id="572" type="car" gvwr="4500" size="2" fueltank="100">
 		<desc name="Mower"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="582" type="car" gvwr="4500" size="-1">
+	<vehicle id="582" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Newsvan"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="413" type="car" gvwr="4500" size="-1">
+	<vehicle id="413" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Pony"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="440" type="car" gvwr="4500" size="-1">
+	<vehicle id="440" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Rumpo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="536" type="car" gvwr="4500" size="4">
+	<vehicle id="536" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Blade"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="575" type="car" gvwr="4500" size="4">
+	<vehicle id="575" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Broadway"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="534" type="car" gvwr="4500" size="6">
+	<vehicle id="534" type="car" gvwr="4500" size="6" fueltank="100">
 		<desc name="Remington"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="567" type="car" gvwr="4500" size="-1">
+	<vehicle id="567" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Savanna"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="535" type="car" gvwr="4500" size="4">
+	<vehicle id="535" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Slamvan"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="576" type="car" gvwr="4500" size="4">
+	<vehicle id="576" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Tornado"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="412" type="car" gvwr="4500" size="6">
+	<vehicle id="412" type="car" gvwr="4500" size="6" fueltank="100">
 		<desc name="Voodoo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="402" type="car" gvwr="4500" size="4">
+	<vehicle id="402" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Buffalo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="542" type="car" gvwr="4500" size="4">
+	<vehicle id="542" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Clover"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="603" type="car" gvwr="4500" size="4">
+	<vehicle id="603" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Phoenix"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="475" type="car" gvwr="4500" size="4">
+	<vehicle id="475" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sabre"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="564" type="car" gvwr="4500" size="1">
+	<vehicle id="564" type="car" gvwr="4500" size="1" fueltank="100">
 		<desc name="RC Tiger"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="568" type="car" gvwr="4500" size="4">
+	<vehicle id="568" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Bandito"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="557" type="Monster Truck" gvwr="20000" size="-1">
+	<vehicle id="557" type="Monster Truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Monster 3"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="424" type="car" gvwr="4500" size="4">
+	<vehicle id="424" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="BF Injection"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="471" type="quad" gvwr="4500" size="1">
+	<vehicle id="471" type="quad" gvwr="4500" size="1" fueltank="100">
 		<desc name="Quadbike"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="504" type="car" gvwr="4500" size="4">
+	<vehicle id="504" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Bloodring Banger"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="495" type="car" gvwr="4500" size="-1">
+	<vehicle id="495" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Sandking"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="457" type="car" gvwr="4500" size="-1">
+	<vehicle id="457" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Caddy"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="539" type="plane" gvwr="4500" size="4">
+	<vehicle id="539" type="plane" gvwr="4500" size="4" fueltank="100">
 		<desc name="Vortex"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="483" type="car" gvwr="4500" size="-1">
+	<vehicle id="483" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Camper"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="508" type="truck" gvwr="20000" size="-1">
+	<vehicle id="508" type="truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Journey"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="571" type="car" gvwr="4500" size="2">
+	<vehicle id="571" type="car" gvwr="4500" size="2" fueltank="100">
 		<desc name="Kart"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="500" type="car" gvwr="4500" size="-1">
+	<vehicle id="500" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Mesa"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="444" type="Monster Truck" gvwr="20000" size="-1">
+	<vehicle id="444" type="Monster Truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Monster 1"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="556" type="Monster Truck" gvwr="20000" size="-1">
+	<vehicle id="556" type="Monster Truck" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Monster 2"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="429" type="car" gvwr="4500" size="4">
+	<vehicle id="429" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Banshee"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="411" type="car" gvwr="4500" size="4">
+	<vehicle id="411" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Infernus"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="541" type="car" gvwr="4500" size="4">
+	<vehicle id="541" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Bullet"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="559" type="car" gvwr="4500" size="4">
+	<vehicle id="559" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Jester"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="415" type="car" gvwr="4500" size="4">
+	<vehicle id="415" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Cheetah"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="561" type="car" gvwr="4500" size="4">
+	<vehicle id="561" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Stratum"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="480" type="car" gvwr="4500" size="4">
+	<vehicle id="480" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Comet"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="560" type="car" gvwr="4500" size="4">
+	<vehicle id="560" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Sultan"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="562" type="car" gvwr="4500" size="4">
+	<vehicle id="562" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Elegy"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="506" type="car" gvwr="4500" size="4">
+	<vehicle id="506" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Super GT"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="565" type="car" gvwr="4500" size="4">
+	<vehicle id="565" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Flash"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="451" type="car" gvwr="4500" size="4">
+	<vehicle id="451" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Turismo"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="434" type="car" gvwr="4500" size="4">
+	<vehicle id="434" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Hotknife"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="558" type="car" gvwr="4500" size="4">
+	<vehicle id="558" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Uranus"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="494" type="car" gvwr="4500" size="4">
+	<vehicle id="494" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Hotring Racer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="555" type="car" gvwr="4500" size="4">
+	<vehicle id="555" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Windsor"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="502" type="car" gvwr="4500" size="4">
+	<vehicle id="502" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Hotring Racer 3"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="477" type="car" gvwr="4500" size="4">
+	<vehicle id="477" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="ZR-350"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="503" type="car" gvwr="4500" size="4">
+	<vehicle id="503" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Hotring Racer 2"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="579" type="car" gvwr="4500" size="-1">
+	<vehicle id="579" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Huntley"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="400" type="car" gvwr="4500" size="-1">
+	<vehicle id="400" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Landstalker"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="404" type="car" gvwr="4500" size="4">
+	<vehicle id="404" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Perennial"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="489" type="car" gvwr="4500" size="-1">
+	<vehicle id="489" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Rancher"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="505" type="car" gvwr="4500" size="-1">
+	<vehicle id="505" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Rancher Lure"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="479" type="car" gvwr="4500" size="4">
+	<vehicle id="479" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Regina"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="442" type="car" gvwr="4500" size="-1">
+	<vehicle id="442" type="car" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Romero"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="458" type="car" gvwr="4500" size="4">
+	<vehicle id="458" type="car" gvwr="4500" size="4" fueltank="100">
 		<desc name="Solair"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="606" type="trailer" gvwr="4500" size="4">
+	<vehicle id="606" type="trailer" gvwr="4500" size="4" fueltank="100">
 		<desc name="Baggage Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="607" type="trailer" gvwr="4500" size="4">
+	<vehicle id="607" type="trailer" gvwr="4500" size="4" fueltank="100">
 		<desc name="Baggage Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="610" type="trailer" gvwr="4500" size="2">
+	<vehicle id="610" type="trailer" gvwr="4500" size="2" fueltank="100">
 		<desc name="Farm Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="611" type="trailer" gvwr="4500" size="4">
+	<vehicle id="611" type="trailer" gvwr="4500" size="4" fueltank="100">
 		<desc name="Street Clean"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="584" type="trailer" gvwr="20000" size="-1">
+	<vehicle id="584" type="trailer" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Tank Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="608" type="trailer" gvwr="4500" size="-1">
+	<vehicle id="608" type="trailer" gvwr="4500" size="-1" fueltank="100">
 		<desc name="Stairs Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="435" type="trailer" gvwr="20000" size="-1">
+	<vehicle id="435" type="trailer" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Box Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="450" type="trailer" gvwr="20000" size="-1">
+	<vehicle id="450" type="trailer" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Hopper Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
-	<vehicle id="591" type="trailer" gvwr="20000" size="-1">
+	<vehicle id="591" type="trailer" gvwr="20000" size="-1" fueltank="100">
 		<desc name="Box Trailer"/>
 		<inventory key="main" volume="1000" />
 	</vehicle>
