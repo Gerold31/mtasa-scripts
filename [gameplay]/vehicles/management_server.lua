@@ -1,5 +1,5 @@
 -- @todo save upgrades, lightstate (including taxi and siren), door locked
--- inventory, fuel
+-- inventory
 
 local dbConnection = nil
 
@@ -17,7 +17,7 @@ function initResource()
 		   "door0 INTEGER, door1 INTEGER, door2 INTEGER, door3 INTEGER, door4 INTEGER, door5 INTEGER, doorR0 REAL, doorR1 REAL, doorR2 REAL, doorR3 REAL, doorR4 REAL, doorR5 REAL, " ..
 		   "wheel0 INTEGER, wheel1 INTEGER, wheel2 INTEGER, wheel3 INTEGER, paintjob INTEGER, variant1 INTEGER, variant2 INTEGER, " ..
 		   "color0r INTEGER, color0g INTEGER, color0b INTEGER, color1r INTEGER, color1g INTEGER, color1b INTEGER, color2r INTEGER, color2g INTEGER, color2b INTEGER, color3r INTEGER, color3g INTEGER, color3b INTEGER, " ..
-		   "engine INTEGER, plate TEXT)")
+		   "engine INTEGER, plate TEXT, fuel INTEGER)")
 	dbQuery(
 		function(qh)
 			local result = dbPoll(qh, 0)
@@ -62,12 +62,12 @@ function create(id, x, y, z)
 					   "door0, door1, door2, door3, door4, door5, doorR0, doorR1, doorR2, doorR3, doorR4, doorR5, " ..
 					   "wheel0, wheel1, wheel2, wheel3, paintjob, variant1, variant2, " ..
 					   "color0r, color0g, color0b, color1r, color1g, color1b, color2r, color2g, color2b, color3r, color3g, color3b, " ..
-					   "engine, plate) " ..
+					   "engine, plate, fuel) " ..
 					   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " ..
-					   "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+					   "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 					   id, x, y, z, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, r(3),
 					   -1, -1, r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), 0,
-					   plate)
+					   plate, getVehicleDefinitionFuelTank(def))
 	local _, _, vid = dbPoll(qh, -1)
 	return tostring(vid)
 end
@@ -142,6 +142,7 @@ function spawnVehicle(row)
 			setVehicleColor(vehicle, row["color0r"], row["color0g"], row["color0b"], row["color1r"], row["color1g"], row["color1b"], row["color2r"], row["color2g"], row["color2b"], row["color3r"], row["color3g"], row["color3b"])
 			setVehicleEngineState(vehicle, row["engine"] == 1 and true or false)
 			setVehiclePlateText(vehicle, row["plate"])
+			setElementData(vehicle, "fuel", row["fuel"], false)
 
 			-- inventory
 			local invs = getVehicleDefinitionInventories(def)
@@ -174,6 +175,7 @@ function saveVehicle(vehicle)
 	local r0, g0, b0, r1, g1, b1, r2, g2, b2, r3, g3, b3 = getVehicleColor(vehicle, true)
 	local engine = getVehicleEngineState(vehicle)
 	local plate = getVehiclePlateText(vehicle)
+	local fuel = getElementData(vehicle, "fuel")
 	for i=0,6 do
 		panel[i] = getVehiclePanelState(vehicle, i)
 	end
@@ -186,8 +188,9 @@ function saveVehicle(vehicle)
 		   "door0=?, door1=?, door2=?, door3=?, door4=?, door5=?, door0=?, doorR1=?, doorR2=?, doorR3=?, doorR4=?, doorR5=?, " ..
 		   "wheel0=?, wheel1=?, wheel2=?, wheel3=?, paintjob=?, variant1=?, variant2=?, " ..
 		   "color0r=?, color0g=?, color0b=?, color1r=?, color1g=?, color1b=?, color2r=?, color2g=?, color2b=?, color3r=?, color3g=?, color3b=?, " ..
-		   "engine=?, plate=? WHERE id=?",
+		   "engine=?, plate=?, fuel=? WHERE id=?",
 		   x,y,z, rx,ry,rz, health, isDamageProof, panel[0], panel[1], panel[2], panel[3], panel[4], panel[5], panel[6],
 		   door[0], door[1], door[2], door[3], door[4], door[5], doorR[0], doorR[1], doorR[2], doorR[3], doorR[4], doorR[5],
-		   wheel0, wheel1, wheel2, wheel3, paintjob, var1, var2, r0, g0, b0, r1, g1, b1, r2, g2, b2, r3, g3, b3, engine, plate, id)
+		   wheel0, wheel1, wheel2, wheel3, paintjob, var1, var2, r0, g0, b0, r1, g1, b1, r2, g2, b2, r3, g3, b3, engine, plate,
+		   fuel, id)
 end
