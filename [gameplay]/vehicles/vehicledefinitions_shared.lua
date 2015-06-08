@@ -75,14 +75,14 @@ function getVehicleDefinitionSize(definition)
 	return data.size
 end
 
-function getVehicleDefinitionFuelTank(definition)
+function getVehicleDefinitionMaxFuel(definition)
 	local id = type(definition) == "table" and definition.id or definition
 	local data = VehicleDefinitions[id]
 	if (data == nil) then
 		invalid_call("Invalid vehicle definition.")
 		return nil
 	end
-	return data.fueltank
+	return data.maxFuel
 end
 
 function getVehicleDefinitionInventories(definition)
@@ -106,7 +106,7 @@ VehicleDefinition = {
 	getType = getVehicleDefinitionType,
 	getGVWR = getVehicleDefinitionGVWR,
 	getSize = getVehicleDefinitionSize,
-	getFuelTank = getVehicleDefinitionFuelTank,
+	getMaxFuel = getVehicleDefinitionMaxFuel,
 	getInventories = getVehicleDefinitionInventories,
 	__tostring = doVehicleDefinitionToString
 }
@@ -129,7 +129,7 @@ function reloadVehicleDefinitions()
 			local vehicletype = node:getAttribute("type")
 			local gvwr = node:getAttribute("gvwr")
 			local size = node:getAttribute("size")
-			local fueltank = node:getAttribute("fueltank")
+			local maxfuel = node:getAttribute("maxfuel")
 
 			-- interpret attributes
 			---- id
@@ -164,7 +164,7 @@ function reloadVehicleDefinitions()
 					["type"]=vehicletype,
 					["gvwr"]=gvwr,
 					["size"]=size,
-					["fueltank"]=fueltank,
+					["maxFuel"]=maxfuel,
 					["localisations"]={},
 					["inventories"]={}
 				}

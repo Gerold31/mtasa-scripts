@@ -67,7 +67,7 @@ function create(id, x, y, z)
 					   "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 					   id, x, y, z, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, r(3),
 					   -1, -1, r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), r(256), 0,
-					   plate, getVehicleDefinitionFuelTank(def))
+					   plate, getVehicleDefinitionMaxFuel(def))
 	local _, _, vid = dbPoll(qh, -1)
 	return tostring(vid)
 end
