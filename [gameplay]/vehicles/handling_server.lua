@@ -2,6 +2,8 @@ function getVehicleHandlingProperty(element, property)
 	return exports["utils"]:getVehicleHandlingProperty(element, property)
 end
 
+local fueldensity = {["diesel"]=0.84, ["petrol"]=0.75, ["electric"]=0}
+
 function updateHandling(vehicle)
 	local invs = exports["inventory"]:getInventories(vehicle)
 	if(invs) then
@@ -9,6 +11,8 @@ function updateHandling(vehicle)
 		for key, inv in pairs(invs) do
 			additionalMass = additionalMass + exports["inventory"]:getInventoryMass(inv)
 		end
+
+		additionalMass = additionalMass + getElementData(vehicle, "fuel")*fueldensity[getVehicleHandlingProperty(getElementModel(vehicle), "engineType")]
 
 		local mass = getVehicleHandlingProperty(getElementModel(vehicle), "mass")
 		local turnMass = getVehicleHandlingProperty(getElementModel(vehicle), "turnMass")
