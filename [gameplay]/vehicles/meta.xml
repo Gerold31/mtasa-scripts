@@ -40,6 +40,7 @@
 	<script type="server" src="attach_server.lua" />
 	<script type="client" src="attach_client.lua" />
 	<script type="server" src="handling_server.lua" />
+	<script type="server" src="fuelconsumption_server.lua" />
 
 	<include resource="utils" />
 	<include resource="inventory" />
