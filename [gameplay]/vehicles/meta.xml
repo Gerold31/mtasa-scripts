@@ -15,9 +15,12 @@
 	<export type="shared" function="getVehicleDefinitionId" />
 	<export type="shared" function="getVehicleDefinitionName" />
 	<export type="shared" function="getVehicleDefinitionLocalizedName" />
-	<export type="shared" function="getVehicleDefinitionWeight" />
-	<export type="shared" function="getVehicleDefinitionVolume" />
-	<export type="shared" function="isVehicleDefinitionDivisible" />
+	<export type="shared" function="getVehicleDefinitionType" />
+	<export type="shared" function="getVehicleDefinitionGVWR" />
+	<export type="shared" function="getVehicleDefinitionSize" />
+	<export type="shared" function="getVehicleDefinitionMaxFuel" />
+	<export type="shared" function="getVehicleDefinitionFuelConsumption" />
+	<export type="shared" function="getVehicleDefinitionInventories" />
 
 	<script type="shared" src="vehicledefinitions_shared.lua" />
 
