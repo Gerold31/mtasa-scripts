@@ -1,5 +1,20 @@
 local engineFailure = 251
 
+function toggleEngine(vehicle, toggle)
+	if(toggle == nil) then
+		toggle = not getVehicleEngineState(vehicle)
+	end
+	if(not toggle) then
+		setVehicleEngineState(vehicle, false)
+	else
+		if(getElementHealth(vehicle) > engineFailure and getElementData(vehicle, "fuel") > 0) then
+			setVehicleEngineState(vehicle, true)
+		else
+			setVehicleEngineState(vehicle, false)
+		end
+	end
+end
+
 addEventHandler("onClientVehicleDamage", getRootElement(),
 	function(_, _, loss)
 		if(getElementHealth(source) - loss <= engineFailure) then
@@ -10,9 +25,7 @@ addEventHandler("onClientVehicleDamage", getRootElement(),
 
 addEventHandler("onClientPlayerVehicleEnter",getRootElement(),
 	function(vehicle, seat)
-		if(getElementHealth(vehicle) <= engineFailure) then
-			setVehicleEngineState(vehicle, false)
-		end
+		toggleEngine(vehicle, getVehicleEngineState(vehicle))
 	end
 )
 
@@ -21,11 +34,7 @@ addCommandHandler("engine",
 		vehicle = getPedOccupiedVehicle(localPlayer)
 		if(vehicle) then
 			if(getVehicleOccupant(vehicle, 0) == localPlayer) then
-				if(getVehicleEngineState(vehicle)) then
-					setVehicleEngineState(vehicle, false)
-				elseif(getElementHealth(vehicle) > engineFailure) then
-					setVehicleEngineState(vehicle, true)
-				end
+				toggleEngine(vehicle)
 			else
 				outputChatBox("You have to be the driver.")
 			end

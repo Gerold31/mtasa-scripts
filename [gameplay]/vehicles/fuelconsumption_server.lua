@@ -8,7 +8,11 @@ setTimer(
 				local def = getVehicleDefinition(getElementModel(vehicle))
 				local consumption = getVehicleDefinitionFuelConsumption(def)*speed/360000
 				consumption = math.max(consumption, idleconsumption)
-				setElementData(vehicle, "fuel", getElementData(vehicle, "fuel") - consumption)
+				local newfuel = math.max(getElementData(vehicle, "fuel") - consumption, 0)
+				setElementData(vehicle, "fuel", newfuel)
+				if(newfuel == 0) then
+					setVehicleEngineState(vehicle, false)
+				end
 				--outputChatBox("vehicle " .. getVehiclePlateText(vehicle) .. " consumed " .. tonumber(consumption) .. " fuel, new level: " .. tonumber(getElementData(vehicle, "fuel")))
 			end
 		end
