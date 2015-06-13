@@ -17,3 +17,17 @@ addCommandHandler("light",
 		end
 	end
 )
+
+addCommandHandler("taxilight",
+	function(player)
+		if(isPedInVehicle(player)) then
+			local vehicle = getPedOccupiedVehicle(player)
+			if(getVehicleController(vehicle) == player) then
+				local id = getElementModel(vehicle)
+				if(id == 420 or id == 438) then
+					setVehicleTaxiLightOn(vehicle, not isVehicleTaxiLightOn(vehicle))
+				end
+			end
+		end
+	end
+)
