@@ -1,0 +1,10 @@
+<meta>
+	<info author="Gerold" description="Vehicle GUI" version="0.1" type="script" />
+	<min_mta_version client="1.4.1" server="1.4.1" />
+	<oop>true</oop>
+
+	<include resource="vehicles" />
+
+	<script type="client" src="fuelgauge_client.lua" />
+
+</meta>
