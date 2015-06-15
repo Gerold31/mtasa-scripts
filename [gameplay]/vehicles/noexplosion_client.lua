@@ -10,6 +10,7 @@ setTimer(
 			if getElementHealth(vehicle) <= startFire and getElementHealth(vehicle) > 0 and not isVehicleDamageProof(vehicle) then
 				setElementHealth(vehicle, lowHealth);
 				setVehicleDamageProof(vehicle, true)
+				setVehicleEngineState(vehicle, false)
 			end
 		end
 	end, 1000, 0
