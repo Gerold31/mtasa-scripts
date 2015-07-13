@@ -7,7 +7,7 @@ local startFire = 250
 setTimer(
 	function ( )
 		for _, vehicle in ipairs(getElementsByType("vehicle")) do
-			if getElementHealth(vehicle) <= startFire and getElementHealth(vehicle) > 0 and not isVehicleDamageProof(vehicle) then
+			if getElementHealth(vehicle) <= startFire and getElementHealth(vehicle) > 0 and not isVehicleDamageProof(vehicle) and getElementData(vehicle, "id") then
 				setElementHealth(vehicle, lowHealth);
 				setVehicleDamageProof(vehicle, true)
 				setVehicleEngineState(vehicle, false)
@@ -19,7 +19,7 @@ setTimer(
 -- check if a bruning vehicles is hit with a fire extinguisher
 -- if one is "repair" the vehicle until it stops burning
 function vehicleFireFix(weapon, _, _, _, _, _, element)
-	if weapon == 42 and element and getElementType(element) == "vehicle" then
+	if weapon == 42 and element and getElementType(element) == "vehicle" and getElementData(element, "id") then
 		local health = getElementHealth(element)
 		if health < startFire and health > 0 then
 			setElementHealth(element, health + 1)
@@ -29,7 +29,7 @@ function vehicleFireFix(weapon, _, _, _, _, _, element)
 			end
 		end
 	-- debug
-	elseif weapon == 41 and element and getElementType(element) == "vehicle" then
+	elseif weapon == 41 and element and getElementType(element) == "vehicle" and getElementData(element, "id") then
 		local health = getElementHealth(element)
 		if health >= startFire and health < 800 then
 			setElementHealth(element, health + 1)

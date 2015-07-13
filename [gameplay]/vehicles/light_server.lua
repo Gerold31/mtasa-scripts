@@ -1,7 +1,7 @@
 addCommandHandler("light",
 	function(player)
 		vehicle = getPedOccupiedVehicle(player)
-		if(vehicle) then
+		if(vehicle and getElementData(vehicle, "id")) then
 			if(getVehicleOccupant(vehicle, 0) == player) then
 				local light = getVehicleOverrideLights(vehicle)
 				if(light ~= 2) then
@@ -22,7 +22,7 @@ addCommandHandler("taxilight",
 	function(player)
 		if(isPedInVehicle(player)) then
 			local vehicle = getPedOccupiedVehicle(player)
-			if(getVehicleController(vehicle) == player) then
+			if(getVehicleController(vehicle) == player and getElementData(vehicle, "id")) then
 				local id = getElementModel(vehicle)
 				if(id == 420 or id == 438) then
 					setVehicleTaxiLightOn(vehicle, not isVehicleTaxiLightOn(vehicle))

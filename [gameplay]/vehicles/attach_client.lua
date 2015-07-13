@@ -5,7 +5,7 @@ addEvent("onPackerRampMove", true)
 bindKey("special_control_up", "down",
 function()
 	local vehicle = getPedOccupiedVehicle(localPlayer)
-	if(vehicle and getElementModel(vehicle) == packerID and getVehicleOccupant(vehicle, 0) == localPlayer) then
+	if(vehicle and getElementModel(vehicle) == packerID and getVehicleOccupant(vehicle, 0) == localPlayer and getElementData(vehicle, "id")) then
 		triggerServerEvent("onPackerRampUp", localPlayer, vehicle)
 	end
 end)
@@ -13,7 +13,7 @@ end)
 bindKey("special_control_down", "down",
 function()
 	local vehicle = getPedOccupiedVehicle(localPlayer)
-	if(vehicle and getElementModel(vehicle) == packerID and getVehicleOccupant(vehicle, 0) == localPlayer) then
+	if(vehicle and getElementModel(vehicle) == packerID and getVehicleOccupant(vehicle, 0) == localPlayer and getElementData(vehicle, "id")) then
 		triggerServerEvent("onPackerRampDown", localPlayer, vehicle)
 	end
 end)

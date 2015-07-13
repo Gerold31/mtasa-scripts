@@ -2,7 +2,7 @@ local idleconsumption = 0.5/60/60
 setTimer(
 	function ( )
 		for _, vehicle in ipairs(getElementsByType("vehicle")) do
-			if(getVehicleEngineState(vehicle)) then
+			if(getVehicleEngineState(vehicle) and getElementData(vehicle, "id")) then
 				vx,vy,vz = getElementVelocity(vehicle)
 				speed = (vx^2 + vy^2 + vz^2)^0.5 * 180
 				local def = getVehicleDefinition(getElementModel(vehicle))

@@ -5,7 +5,7 @@ addEventHandler("onClientResourceStart", resourceRoot,
 	function()
 		fuelgauge = guiCreateProgressBar(.85, .93, .1, .02, true)
 		local vehicle = getPedOccupiedVehicle(localPlayer)
-		if(vehicle and getVehicleOccupant(vehicle) == localPlayer) then
+		if(vehicle and getVehicleOccupant(vehicle) == localPlayer and getElementData(vehicle, "id")) then
 			onPlayerEnterVehicle(vehicle, 0)
 		else
 			guiSetVisible(fuelgauge, false)
@@ -14,7 +14,7 @@ addEventHandler("onClientResourceStart", resourceRoot,
 )
 
 function onPlayerEnterVehicle(vehicle, seat)
-	if(seat == 0) then
+	if(seat == 0 and getElementData(vehicle, "id")) then
 		guiSetVisible(fuelgauge, true)
 		updateFuelGauge(vehicle)
 		timer = setTimer(updateFuelGauge, 5000, 0, vehicle)

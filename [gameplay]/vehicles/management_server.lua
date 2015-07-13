@@ -37,9 +37,7 @@ addEventHandler("onResourceStart", getResourceRootElement(getThisResource()), in
 function stopResource()
 	for _, vehicle in pairs(getElementsByType('vehicle')) do
 		local id = getElementData(vehicle, "id")
-		if(not id) then
-			ouputServerLog("Vehicle has no id!")
-		else
+		if(id) then
 			saveVehicle(vehicle)
 		end
 	end
@@ -123,7 +121,7 @@ function spawnVehicle(row)
 	if(def) then
 		local vehicle = createVehicle(row["vehicleID"], row["posX"],row["posY"],row["posZ"], row["rotX"],row["rotY"],row["rotZ"])
 		if(vehicle) then
-			setElementData(vehicle, "id", row["id"], false)
+			setElementData(vehicle, "id", row["id"], true)
 
 			setElementHealth(vehicle, row["health"])
 			setVehicleDamageProof(vehicle, row["isDamageProof"] == 1 and true or false)
@@ -145,7 +143,7 @@ function spawnVehicle(row)
 			setVehicleColor(vehicle, row["color0r"], row["color0g"], row["color0b"], row["color1r"], row["color1g"], row["color1b"], row["color2r"], row["color2g"], row["color2b"], row["color3r"], row["color3g"], row["color3b"])
 			setVehicleEngineState(vehicle, row["engine"] == 1 and true or false)
 			setVehiclePlateText(vehicle, row["plate"])
-			setElementData(vehicle, "fuel", row["fuel"], false)
+			setElementData(vehicle, "fuel", row["fuel"], true)
 			setVehicleOverrideLights(vehicle, row["light"])
 			setVehicleTaxiLightOn(vehicle, row["taxilight"] == 1 and true or false)
 

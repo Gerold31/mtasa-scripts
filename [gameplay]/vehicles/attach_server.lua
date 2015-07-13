@@ -40,7 +40,7 @@ addEvent("onPackerRampUp", true)
 addEvent("onPackerRampDown", true)
 
 function initVehicle(vehicle)
-	if(getElementModel(vehicle) == packerID) then
+	if(getElementModel(vehicle) == packerID and getElementData(vehicle, "id")) then
 		rampState[vehicle] = 0
 		mountedVehicles[vehicle] = {}
 	end
@@ -48,7 +48,9 @@ end
 
 function initResource()
 	for _, vehicle in pairs(getElementsByType('vehicle')) do
-		initVehicle(vehicle)
+		if(getElementData(vehicle, "id")) then
+			initVehicle(vehicle)
+		end
 	end
 end
 addEventHandler("onResourceStart", getRootElement(), initResource)
@@ -56,7 +58,7 @@ addEventHandler("onResourceStart", getRootElement(), initResource)
 addEventHandler("onVehicleSpawn", getRootElement(), function() initVehicle(source) end)
 
 function disableRamp(vehicle)
-	if(getElementModel(vehicle) == packerID) then
+	if(getElementModel(vehicle) == packerID and getElementData(vehicle, "id")) then
 		toggleControl(source, "special_control_up", false)
 		toggleControl(source, "special_control_down", false)
 		local pos = rampState[vehicle]
@@ -218,7 +220,7 @@ function mountVehicle(player, command, vehicleID, slot)
 
 	local vehicle = getPedOccupiedVehicle(player)
 
-	if(vehicle and getElementModel(vehicle) == packerID) then
+	if(vehicle and getElementModel(vehicle) == packerID and getElementData(vehicle, "id")) then
 		if(slot < 1) then
 			slot = getNextFreeSlot(vehicle, size)
 		end
@@ -311,7 +313,7 @@ addCommandHandler("mount", mountVehicle)
 function detachVehicles(player, command, slot)
 	slot = tonumber(slot)
 	local vehicle = getPedOccupiedVehicle(player)
-	if(vehicle and getElementModel(vehicle) == packerID and mountedVehicles[vehicle][slot]) then
+	if(vehicle and getElementModel(vehicle) == packerID and mountedVehicles[vehicle][slot] and getElementData(vehicle, "id")) then
 		local child = mountedVehicles[vehicle][slot]
 		local size = getVehicleDefinitionSize(getVehicleDefinition(getElementModel(getElementModel(child))))
 		for i=slot,0,-1 do

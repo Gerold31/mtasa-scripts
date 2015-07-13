@@ -17,7 +17,7 @@ end
 
 addEventHandler("onClientVehicleDamage", getRootElement(),
 	function(_, _, loss)
-		if(getElementHealth(source) - loss <= engineFailure) then
+		if(getElementHealth(source) - loss <= engineFailure and getElementData(source, "id")) then
 			setVehicleEngineState(source, false)
 		end
 	end
@@ -25,14 +25,16 @@ addEventHandler("onClientVehicleDamage", getRootElement(),
 
 addEventHandler("onClientPlayerVehicleEnter",getRootElement(),
 	function(vehicle, seat)
-		toggleEngine(vehicle, getVehicleEngineState(vehicle))
+		if(getElementData(vehicle, "id")) then
+			toggleEngine(vehicle, getVehicleEngineState(vehicle))
+		end
 	end
 )
 
 addCommandHandler("engine",
 	function()
 		vehicle = getPedOccupiedVehicle(localPlayer)
-		if(vehicle) then
+		if(vehicle and getElementData(vehicle, "id")) then
 			if(getVehicleOccupant(vehicle, 0) == localPlayer) then
 				toggleEngine(vehicle)
 			else
