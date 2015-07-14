@@ -18,3 +18,16 @@ setTimer(
 		end
 	end, 1000, 0
 )
+
+function onElementDataChange(data, old)
+	if(data == "fuel" and getElementType(source) == "vehicle") then
+		if(client ~= nil) then
+			outputServerLog("Player '" .. tostring(getPlayerName(client)) .. "' tried to change a fuel level.")
+			setElementData(source, data, old)
+		elseif(sourceResource ~= getThisResource()) then
+			outputServerLog("Resource '" .. tostring(getResourceName(sourceResource)) .. "' tried to change a fuel level.")
+			setElementData(source, data, old)
+		end
+	end
+end
+addEventHandler("onElementDataChange", getResourceRootElement(getThisResource()), onElementDataChange)
