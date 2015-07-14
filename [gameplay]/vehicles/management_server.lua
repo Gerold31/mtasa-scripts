@@ -33,7 +33,6 @@ function initResource()
 end
 addEventHandler("onResourceStart", getResourceRootElement(getThisResource()), initResource)
 
-
 function stopResource()
 	for _, vehicle in pairs(getElementsByType('vehicle')) do
 		local id = getElementData(vehicle, "id")
@@ -43,6 +42,19 @@ function stopResource()
 	end
 end
 addEventHandler("onResourceStop", getResourceRootElement(getThisResource()), stopResource)
+
+function onElementDataChange(data, old)
+	if(data == "id" and getElementType(source) == "vehicle") then
+		if(client ~= nil) then
+			outputServerLog("Player '" .. tostring(getPlayerName(client)) .. "' tried to change a vehicleid.")
+			setElementData(source, data, old)
+		elseif(sourceResource ~= getThisResource()) then
+			outputServerLog("Resource '" .. tostring(getResourceName(sourceResource)) .. "' tried to change a vehicleid.")
+			setElementData(source, data, old)
+		end
+	end
+end
+addEventHandler("onElementDataChange", getResourceRootElement(getThisResource()), onElementDataChange)
 
 function create(id, x, y, z)
 	local def = getVehicleDefinition(id)
