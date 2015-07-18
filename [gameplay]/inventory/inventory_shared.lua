@@ -12,7 +12,7 @@ end
 function getInventories(element)
 	local result = {}
 	for key, _ in pairs(Inventories[element] or {}) do
-		result[key] = setmetatable({["element"] = element, ["key"] = key}, Inventory)
+		table.insert(result, setmetatable({["element"] = element, ["key"] = key}, Inventory))
 	end
 	return result
 end
